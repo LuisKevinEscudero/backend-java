@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dependencias/dependencias.iml" filepath="$PROJECT_DIR$/dependencias/dependencias.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ej3.2-create-repo-git/ej3.2-create-repo-git.iml" filepath="$PROJECT_DIR$/ej3.2-create-repo-git/ej3.2-create-repo-git.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ejercicio1Maven/ejercicio1Maven.iml" filepath="$PROJECT_DIR$/ejercicio1Maven/ejercicio1Maven.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ejercicios java.iml" filepath="$PROJECT_DIR$/.idea/ejercicios java.iml" />
     </modules>
   </component>

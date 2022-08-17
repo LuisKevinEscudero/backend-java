@@ -22,4 +22,10 @@ public class Persona {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public void addPersona(String nombre, String poblacion, int edad)
+    {
+        this.nombre = nombre;
+        this.edad = Integer.toString(edad);
+    }
 }

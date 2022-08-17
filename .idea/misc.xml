@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -7,6 +8,8 @@
         <option value="$PROJECT_DIR$/dependencias/pom.xml" />
         <option value="$PROJECT_DIR$/ejercicio1Maven/pom.xml" />
         <option value="$PROJECT_DIR$/ej3.2-create-repo-git/pom.xml" />
+        <option value="$PROJECT_DIR$/ejerDependencias/pom.xml" />
+        <option value="$PROJECT_DIR$/ej1.1-process-file-and-streams/pom.xml" />
       </list>
     </option>
   </component>
