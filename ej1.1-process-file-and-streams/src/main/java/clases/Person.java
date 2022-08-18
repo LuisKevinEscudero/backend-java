@@ -39,6 +39,6 @@ public class Person {
     }
 
     public void showPerson() {
-        System.out.println("Name: " + name + " Town: " + town + " Age: " + age);
+        System.out.println("Name: " + name + " | Town: " + town + " | Age: " + age);
     }
 }
