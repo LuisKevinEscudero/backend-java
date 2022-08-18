@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ej3.1-maven-package" />
         <module name="ejercicio1Maven" />
         <module name="ej1.1-process-file-and-streams" />
         <module name="dependencias" />
