@@ -32,10 +32,13 @@ public class Persona {
         this.edad = edad;
     }
 
-    public static void addPersona(String nombre, String poblacion, int edad) {
+
+    public Persona addPersona(String nombre, String poblacion, int edad) {
         Persona persona = new Persona();
         persona.setNombre(nombre);
         persona.setPoblacion(poblacion);
         persona.setEdad(edad);
+
+        return persona;
     }
 }
