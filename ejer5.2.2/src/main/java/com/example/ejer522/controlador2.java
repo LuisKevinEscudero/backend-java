@@ -12,9 +12,9 @@ public class controlador2 {
     @Autowired
     CityService cityService;
 
-    @GetMapping("/controlador2/getCity")
-    public List<City> getCity()
+    @GetMapping("/controlador2/getCities")
+    public List<City> getCities()
     {
-        return CityService.getCity();
+        return cityService.getCities();
     }
 }
