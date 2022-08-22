@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ej3.1-maven-package" />
         <module name="ejer5.2.2" />
+        <module name="ejer5.2.3" />
         <module name="ej5.1.1 inyeccion de dependencias" />
         <module name="ejercicio1Maven" />
         <module name="ej5.1 servidor-web" />
@@ -24,6 +25,7 @@
       <module name="ej5.1 servidor-web" options="-parameters" />
       <module name="ej5.1.1 inyeccion de dependencias" options="-parameters" />
       <module name="ejer5.2.2" options="-parameters" />
+      <module name="ejer5.2.3" options="-parameters" />
     </option>
   </component>
 </project>
