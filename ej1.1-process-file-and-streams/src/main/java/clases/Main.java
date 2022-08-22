@@ -14,8 +14,9 @@ public class Main {
 
     public static void main(String[] args) throws InvalidLineFormatException {
         List<Person> peopleList = new ArrayList<Person>();
-        //String fileName = "C:\\Users\\luiskevin.escudero\\Desktop\\ejercicios java\\ej1.1-process-file-and-streams\\src\\main\\java\\people.csv";
-        String fileName= "ej1.1-process-file-and-streams/src/main/java/people.csv";
+        String fileName= args[0];
+
+        //String fileName= "ej1.1-process-file-and-streams/src/main/java/people.csv";
         Path path = Paths.get(fileName);
 
         try
