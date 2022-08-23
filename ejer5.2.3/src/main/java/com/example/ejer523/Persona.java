@@ -8,6 +8,16 @@ public class Persona {
     String poblacion;
     int edad;
 
+    public Persona ()
+    {
+    }
+
+    public Persona(String nombre, String poblacion, int edad)
+    {
+        setNombre(nombre);
+        setPoblacion(poblacion);
+        setEdad(edad);
+    }
     public String getNombre() {
         return nombre;
     }
@@ -33,12 +43,5 @@ public class Persona {
     }
 
 
-    public Persona addPersona(String nombre, String poblacion, int edad) {
-        Persona persona = new Persona();
-        persona.setNombre(nombre);
-        persona.setPoblacion(poblacion);
-        persona.setEdad(edad);
 
-        return persona;
-    }
 }

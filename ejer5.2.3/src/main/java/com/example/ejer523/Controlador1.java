@@ -7,37 +7,31 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class Controlador1 {
 
-    @Autowired
-    @Qualifier("Bean1")
-    PersonaService personaService;
 
     @Autowired
-    @Qualifier("Bean1")
-    PersonaService personaService1;
+    @Qualifier("bean1")
+    Persona persona1;
 
+    @Autowired
+    @Qualifier("bean2")
+    Persona persona2;
 
+    @Autowired
+    @Qualifier("bean3")
+    Persona persona3;
 
-    //@GetMapping("/controlador1/addPerson/{nombre}/{poblacion}/{edad}")
-    @GetMapping("/controlador1/addPerson")
-    public Persona addPerson(@RequestHeader String nombre, @RequestHeader String poblacion, @RequestHeader int edad)
+    @GetMapping("/controlador1/bean/{bean}")
+    public  Persona mostrarBean(@PathVariable String bean)
     {
-        return personaService.addPersona(new Persona().addPersona(nombre, poblacion, edad));
-    }
+        if (bean.equals("bean1"))
+            return  persona1;
+        if (bean.equals("bean2"))
+            return  persona2;
+        if (bean.equals("bean3"))
+            return  persona3;
 
-    @PutMapping
-    public Persona hola(@RequestBody Persona persona)
-    {
-        if (persona.getEdad() > 18)
-        {
-            personaService1.addPersona(persona);
-        }
-        else
-        {
-            personaService.addPersona(persona);
-        }
-        return  persona;
+        return null;
     }
-
 
 
 }
