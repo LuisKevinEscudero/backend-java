@@ -13,6 +13,7 @@
         <module name="ej5.1.1 inyeccion de dependencias" />
         <module name="ejercicio1Maven" />
         <module name="ej5.1 servidor-web" />
+        <module name="ej5.1-command-line-runner" />
         <module name="ej1.1-process-file-and-streams" />
         <module name="dependencias" />
         <module name="ej3.2-create-repo-git" />
@@ -23,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dependencias" options="-parameters" />
       <module name="ej5.1 servidor-web" options="-parameters" />
+      <module name="ej5.1-command-line-runner" options="-parameters" />
       <module name="ej5.1.1 inyeccion de dependencias" options="-parameters" />
       <module name="ejer5.2.2" options="-parameters" />
       <module name="ejer5.2.3" options="-parameters" />
