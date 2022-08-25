@@ -1,0 +1,8 @@
+2022-08-25 11:27:43,875 INFO com.example.ej5.logging.Application [main] Starting Application using Java 18.0.2 on L2207036 with PID 10488 (C:\Users\luiskevin.escudero\Desktop\ejercicios java\ej5.5-logging\target\classes started by luiskevin.escudero in C:\Users\luiskevin.escudero\Desktop\ejercicios java)
+2022-08-25 11:27:43,879 DEBUG com.example.ej5.logging.Application [main] Running with Spring Boot v2.7.3, Spring v5.3.22
+2022-08-25 11:27:43,881 INFO com.example.ej5.logging.Application [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-25 11:27:45,170 INFO com.example.ej5.logging.Application [main] Started Application in 1.668 seconds (JVM running for 2.239)
+2022-08-25 11:27:52,409 DEBUG com.example.ej5.logging.controlador1 [http-nio-8080-exec-1] Mensaje a nivel de DEBUG
+2022-08-25 11:27:52,420 INFO com.example.ej5.logging.controlador1 [http-nio-8080-exec-1] Mensaje a nivel de INFO
+2022-08-25 11:27:52,420 WARN com.example.ej5.logging.controlador1 [http-nio-8080-exec-1] Mensaje a nivel de WARNING
+2022-08-25 11:27:52,420 ERROR com.example.ej5.logging.controlador1 [http-nio-8080-exec-1] Mensaje a nivel de ERROR
