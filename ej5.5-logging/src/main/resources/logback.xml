@@ -14,48 +14,32 @@
         <encoder>
             <pattern>$ %d %p %c{1.} [%t] %m%n</pattern>
         </encoder>
-    </appender>
 
-    <!-- DEBUG -->
-    <appender name="debugAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- Ruta del archivo-->
-        <file>${log.filePath}/debug.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- Nombre de archivo-->
-            <fileNamePattern>${log.filePath}/debug/debug.%d{yyyy-MM-dd}.log.gz
-            </fileNamePattern>
-            <!-- Número máximo de archivos de historial guardados-->
-            <maxHistory>5</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>$ %d %p %c{1.} [%t] %m%n</pattern>
-        </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+             <onMatch>ACCEPT</onMatch>
+        </filter>
+
+       <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>DEBUG</level>
             <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
         </filter>
-    </appender>
 
-    <!-- INFO -->
-    <appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- Ruta del archivo-->
-        <file>${log.filePath}/info.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- Nombre de archivo-->
-            <fileNamePattern>${log.filePath}/info/info.%d{yyyy-MM-dd}.log.gz
-            </fileNamePattern>
-            <!-- Número máximo de archivos de historial guardados-->
-            <maxHistory>5</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>$ %d %p %c{1.} [%t] %m%n</pattern>
-        </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
             <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
         </filter>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+        </filter>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+        </filter>
+
+
     </appender>
 
     <!-- ERROR -->
@@ -80,11 +64,11 @@
     </appender>
 
     <logger name="com.example.ej5.logging" level="${log.level}" additivity="true">
-        <appender-ref ref="debugAppender"/>
-        <appender-ref ref="infoAppender"/>
-        <appender-ref ref="errorAppender"/>
-    </logger>
-    <root level="info">
-        <appender-ref ref="consoleAppender"/>
-    </root>
-</configuration>
+        <!-- <appender-ref ref="debugAppender"/> -->
+        <!-- <appender-ref ref="infoAppender"/> -->
+         <appender-ref ref="errorAppender"/>
+     </logger>
+     <root level="ERROR">
+         <appender-ref ref="consoleAppender"/>
+     </root>
+ </configuration>

@@ -1,2 +1,0 @@
-$ 2022-08-25 12:55:23,438 DEBUG com.example.ej5.logging.Application [main] Running with Spring Boot v2.7.3, Spring v5.3.22
-$ 2022-08-25 12:55:31,070 DEBUG com.example.ej5.logging.controlador1 [http-nio-8080-exec-3] Mensaje a nivel de DEBUG

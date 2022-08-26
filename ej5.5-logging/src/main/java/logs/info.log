@@ -1,4 +1,0 @@
-$ 2022-08-25 12:55:23,435 INFO com.example.ej5.logging.Application [main] Starting Application using Java 18.0.2 on L2207036 with PID 17532 (C:\Users\luiskevin.escudero\Desktop\ejercicios java\ej5.5-logging\target\classes started by luiskevin.escudero in C:\Users\luiskevin.escudero\Desktop\ejercicios java)
-$ 2022-08-25 12:55:23,439 INFO com.example.ej5.logging.Application [main] No active profile set, falling back to 1 default profile: "default"
-$ 2022-08-25 12:55:24,725 INFO com.example.ej5.logging.Application [main] Started Application in 1.648 seconds (JVM running for 2.106)
-$ 2022-08-25 12:55:31,071 INFO com.example.ej5.logging.controlador1 [http-nio-8080-exec-3] Mensaje a nivel de INFO
