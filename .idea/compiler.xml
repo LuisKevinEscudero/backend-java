@@ -8,17 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ej3.1-maven-package" />
-        <module name="ejer5.2.2" />
-        <module name="ejer5.2.3" />
         <module name="ej5.1.1 inyeccion de dependencias" />
-        <module name="ejercicio1Maven" />
-        <module name="ej5.1 servidor-web" />
         <module name="ej5.1-command-line-runner" />
-        <module name="ej5.4-properties" />
         <module name="ej1.1-process-file-and-streams" />
         <module name="dependencias" />
-        <module name="ej5.5-logging" />
         <module name="ej3.2-create-repo-git" />
+        <module name="ejer5.2.2" />
+        <module name="ejer5.2.3" />
+        <module name="ejercicio1Maven" />
+        <module name="ej5.1 servidor-web" />
+        <module name="ej5.4-properties" />
+        <module name="ej5.5-logging" />
+        <module name="ej6.3-path-variable-headers" />
       </profile>
     </annotationProcessing>
   </component>
@@ -30,6 +31,7 @@
       <module name="ej5.1.1 inyeccion de dependencias" options="-parameters" />
       <module name="ej5.4-properties" options="-parameters" />
       <module name="ej5.5-logging" options="-parameters" />
+      <module name="ej6.3-path-variable-headers" options="-parameters" />
       <module name="ejer5.2.2" options="-parameters" />
       <module name="ejer5.2.3" options="-parameters" />
     </option>

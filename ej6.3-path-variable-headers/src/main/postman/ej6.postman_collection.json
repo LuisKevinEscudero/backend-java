@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "770cffbb-9f6b-4331-89cc-c9ef1fa8d81a",
+		"name": "ej6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22803820"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/JSONperson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"kevin\",\r\n    \"lastName\":\"Escudero\",\r\n    \"age\":25\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/JSONperson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"JSONperson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/Getperson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Getperson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Getperson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/Putperson/?name=juli&lastName=nuñez&age=12",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Putperson/?name=juli&lastName=nuñez&age=12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Putperson",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "juli"
+						},
+						{
+							"key": "lastName",
+							"value": "nuñez"
+						},
+						{
+							"key": "age",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
