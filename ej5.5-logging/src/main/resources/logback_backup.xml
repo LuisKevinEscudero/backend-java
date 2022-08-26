@@ -7,7 +7,6 @@
     <property name="log.level" value="debug" />
     <property name="log.maxHistory" value="30" />
     <property name="log.filePath" value="ej5.5-logging/src/main/java/logs" />
-    <property name="log.number" value="01" />
     <property name="log.pattern"
               value=" %d %p %c{1.} [%t] %m%n" />
     <!-- Configuración de la consola-->
@@ -46,7 +45,7 @@
     <!-- ERROR -->
     <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- Ruta del archivo-->
-        <file>${log.filePath}/spring-logging-${log.number}.log</file>
+        <file>${log.filePath}/erorr.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- Nombre de archivo-->
             <fileNamePattern>${log.filePath}/error/error.%d{yyyy-MM-dd}.log.gz
