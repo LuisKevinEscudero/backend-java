@@ -17,8 +17,12 @@
         <option value="$PROJECT_DIR$/ej5.4-properties/pom.xml" />
         <option value="$PROJECT_DIR$/ej5.5-logging/pom.xml" />
         <option value="$PROJECT_DIR$/ej6.3-path-variable-headers/pom.xml" />
+        <option value="$PROJECT_DIR$/ej6.3.2-CRUDS/pom.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
 </project>
