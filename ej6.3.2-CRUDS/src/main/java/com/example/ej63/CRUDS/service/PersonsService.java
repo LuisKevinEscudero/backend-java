@@ -39,4 +39,11 @@ public class PersonsService {
     {
         personsRepository.save(persons);
     }
+
+    public List<Persons> getPersonsByName(String name)
+    {
+        List<Persons> persons = new ArrayList<Persons>();
+        personsRepository.findByName(name).forEach(persons1 -> persons.add(persons1));
+        return persons;
+    }
 }

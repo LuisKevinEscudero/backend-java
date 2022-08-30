@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "1b220793-dda2-499f-8325-e8fd50c6dbd9",
+		"name": "CRUDS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22803820"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/persona/savePerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personId\":\"6\",\r\n    \"name\":\"kevin\",\r\n    \"poblation\":\"lugo\",\r\n    \"age\":\"31\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/persona/savePerson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"savePerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/persona/getAllPersons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/getAllPersons",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"getAllPersons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/persona/deletePerson/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"personId\": 1,\r\n        \"name\": \"juli\",\r\n        \"poblation\": \"zamora\",\r\n        \"age\": 23\r\n    } ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/persona/deletePerson/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"deletePerson",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/persona/updatePerson/",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"personId\": 1,\r\n        \"name\": \"fatima\",\r\n        \"poblation\": \"salamanca\",\r\n        \"age\": 25\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/persona/updatePerson/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"updatePerson",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/persona/getPersonByName/kevin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/getPersonByName/kevin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"getPersonByName",
+						"kevin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
