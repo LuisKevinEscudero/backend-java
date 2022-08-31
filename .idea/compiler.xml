@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ej3.1-maven-package" />
         <module name="ej6.3.2-CRUDS" />
+        <module name="ej7.1-crud-validation" />
         <module name="ej5.1.1 inyeccion de dependencias" />
         <module name="ej6.4-profiles" />
         <module name="ej5.1-command-line-runner" />
@@ -36,6 +37,7 @@
       <module name="ej6.3-path-variable-headers" options="-parameters" />
       <module name="ej6.3.2-CRUDS" options="-parameters" />
       <module name="ej6.4-profiles" options="-parameters" />
+      <module name="ej7.1-crud-validation" options="-parameters" />
       <module name="ejer5.2.2" options="-parameters" />
       <module name="ejer5.2.3" options="-parameters" />
     </option>

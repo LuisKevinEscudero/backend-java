@@ -1,10 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
-    <envs>
-      <env name="spring.profiles.active" value="perfil2" />
-    </envs>
-    <option name="MAIN_CLASS_NAME" value="com.example.ej6.profiles.Application" />
-    <module name="ej6.4-profiles" />
+    <option name="MAIN_CLASS_NAME" value="com.example.ej7.crudvalidation.Application" />
+    <module name="ej7.1-crud-validation" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
