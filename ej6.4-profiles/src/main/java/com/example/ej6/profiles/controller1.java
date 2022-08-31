@@ -12,6 +12,9 @@ public class controller1 {
     @Autowired
     private Environment environment;
 
+    @Autowired
+    perfiles perf;
+
     @Value("${server.port}")
     private String port;
 
@@ -24,6 +27,11 @@ public class controller1 {
     @GetMapping("parametros")
     public String parametros() {
         return "El valor de port es: "+port+" El valor de url es: "+url+" El valor de password es: "+password;
+    }
+
+    @GetMapping("profile")
+    public void profile() {
+       perf.miFuncion();
     }
 }
 
