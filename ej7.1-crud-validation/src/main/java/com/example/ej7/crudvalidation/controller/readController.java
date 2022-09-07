@@ -1,7 +1,7 @@
 package com.example.ej7.crudvalidation.controller;
 
 import com.example.ej7.crudvalidation.model.Person;
-import com.example.ej7.crudvalidation.service.PersonService;
+import com.example.ej7.crudvalidation.service.PersonService1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +13,7 @@ import java.util.List;
 public class readController {
 
     @Autowired
-    PersonService personService;
+    PersonService1 personService;
 
 
     @GetMapping("/getAllPersons")
