@@ -21,24 +21,35 @@ public class PersonServiceImp implements PersonService{
 
         Person person = personInputDTO.toPerson();
 
-        //person.createPerson(personInputDTO);
-
+        if (person.getUsername() == null || person.getUsername().isEmpty()) {
+            throw new Exception("username no puede ser nulo");
+        }
+        if(person.getUsername().length() < 3) {
+            throw new Exception("username debe tener al menos 3 caracteres");
+        }
+        if(person.getUsername().length() > 10) {
+            throw new Exception("username debe tener menos de 10 caracteres");
+        }
+        if (person.getPassword() == null || person.getPassword().isEmpty()) {
+            throw new Exception("password no puede ser nulo");
+        }
         if (person.getName()==null)
         {
             throw new Exception("Name no puede ser nulo");
         }
-        if(person.getName().length()<3)
-        {
-            throw new Exception("Name debe tener al menos 3 caracteres");
+        if(person.getCompanyEmail() == null || person.getCompanyEmail().isEmpty()) {
+            throw new Exception("companyEmail no puede ser nulo");
         }
-        if(person.getName().length()>10)
-        {
-            throw new Exception("Name debe tener menos de 10 caracteres");
+        if(person.getPersonalEmail() == null || person.getPersonalEmail().isEmpty()) {
+            throw new Exception("personalEmail no puede ser nulo");
+        }
+        if(person.getCity() == null || person.getCity().isEmpty()) {
+            throw new Exception("city no puede ser nulo");
         }
 
         personRepository.save(person);
 
-        return new PersonOutputDTO(person);
+        return new PersonOutputDTO();
     }
 
 
@@ -49,21 +60,25 @@ public class PersonServiceImp implements PersonService{
 
     @Override
     public PersonOutputDTO getPerson(Integer id) throws Exception {
-        return null;
+
+        return personRepository
+                .findById(id)
+                .map(person ->new PersonOutputDTO().PersonInputDTO(person))
+                .orElseThrow(() -> new Exception("No existe la persona"));
     }
 
     @Override
     public void deletePerson(Integer id) throws Exception {
-
+        personRepository.deleteById(id);
     }
 
     @Override
     public List<Person> findByName(String name) {
-        return null;
+        return personRepository.findByName(name);
     }
 
     @Override
     public List<Person> findAll() {
-        return null;
+        return personRepository.findAll();
     }
 }

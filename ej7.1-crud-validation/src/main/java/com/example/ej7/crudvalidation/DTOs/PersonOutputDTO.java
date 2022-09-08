@@ -21,7 +21,7 @@ public class PersonOutputDTO {
     private String imageUrl;
     private Date terminationDate;
 
-    public void PersonInputDTO(Person person) {
+    public Person PersonInputDTO(Person person) {
         this.id = person.getId();
         this.username = person.getUsername();
         this.password = person.getPassword();
@@ -35,7 +35,7 @@ public class PersonOutputDTO {
         this.imageUrl = person.getImageUrl();
         this.terminationDate = person.getTerminationDate();
 
-       // return person;
+        return person;
     }
 
 }

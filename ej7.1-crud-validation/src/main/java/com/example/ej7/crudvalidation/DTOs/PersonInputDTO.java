@@ -15,9 +15,9 @@ public class PersonInputDTO {
     private String personal_email;
     private String city;
     private Boolean active;
-    private Date created_date;
-    private String image_url;
-    //private Date termination_date;
+    private Date createdDate;
+    private String imageUrl;
+    private Date terminationDate;
 
     public Person toPerson() {
         Person person = new Person();
@@ -29,9 +29,9 @@ public class PersonInputDTO {
         person.setPersonalEmail(this.getPersonal_email());
         person.setCity(this.getCity());
         person.setActive(this.getActive());
-        person.setCreatedDate(this.getCreated_date());
-        person.setImageUrl(this.getImage_url());
-        //person.setTermination_date(this.getTermination_date());
+        person.setCreatedDate(this.getCreatedDate());
+        person.setImageUrl(this.getImageUrl());
+        person.setTerminationDate(this.getTerminationDate());
 
         return person;
     }
