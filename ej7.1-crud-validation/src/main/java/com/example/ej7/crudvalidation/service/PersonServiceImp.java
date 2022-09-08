@@ -19,19 +19,19 @@ public class PersonServiceImp implements PersonService{
     public PersonOutputDTO createPerson(PersonInputDTO personInputDTO) throws Exception
     {
 
-        Person person = new Person();
+        Person person = personInputDTO.toPerson();
 
-        person.createPerson(personInputDTO);
+        //person.createPerson(personInputDTO);
 
-        if (personInputDTO.getName()==null)
+        if (person.getName()==null)
         {
             throw new Exception("Name no puede ser nulo");
         }
-        if(personInputDTO.getName().length()<3)
+        if(person.getName().length()<3)
         {
             throw new Exception("Name debe tener al menos 3 caracteres");
         }
-        if(personInputDTO.getName().length()>10)
+        if(person.getName().length()>10)
         {
             throw new Exception("Name debe tener menos de 10 caracteres");
         }

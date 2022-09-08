@@ -8,34 +8,34 @@ import java.util.Date;
 @Data
 public class PersonOutputDTO {
 
-    private int id_persona;
+    private int id;
     private String username;
     private String password;
     private String name;
     private String surname;
-    private String company_email;
-    private String personal_email;
+    private String companyEmail;
+    private String personalEmail;
     private String city;
     private Boolean active;
-    private Date created_date;
-    private String image_url;
-    private Date termination_date;
+    private Date createdDate;
+    private String imageUrl;
+    private Date terminationDate;
 
-    public Person PersonaInputDTO(Person person) {
-        //this.id_persona = person.getId_persona();
+    public void PersonInputDTO(Person person) {
+        this.id = person.getId();
         this.username = person.getUsername();
         this.password = person.getPassword();
         this.name = person.getName();
         this.surname = person.getSurname();
-        this.company_email = person.getCompany_email();
-        this.personal_email = person.getPersonal_email();
+        this.companyEmail = person.getCompanyEmail();
+        this.personalEmail = person.getPersonalEmail();
         this.city = person.getCity();
         this.active = person.getActive();
-        this.created_date = person.getCreated_date();
-        this.image_url = person.getImage_url();
-        this.termination_date = person.getTermination_date();
+        this.createdDate = person.getCreatedDate();
+        this.imageUrl = person.getImageUrl();
+        this.terminationDate = person.getTerminationDate();
 
-        return person;
+       // return person;
     }
 
 }
