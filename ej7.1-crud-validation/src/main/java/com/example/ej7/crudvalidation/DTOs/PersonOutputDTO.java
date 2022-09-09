@@ -21,7 +21,8 @@ public class PersonOutputDTO {
     private String imageUrl;
     private Date terminationDate;
 
-    public Person PersonInputDTO(Person person) {
+    public Person toPersonOutputDTO(Person person)
+    {
         this.id = person.getId();
         this.username = person.getUsername();
         this.password = person.getPassword();
@@ -36,6 +37,23 @@ public class PersonOutputDTO {
         this.terminationDate = person.getTerminationDate();
 
         return person;
+    }
+
+    public static PersonOutputDTO of(Person person) {
+        PersonOutputDTO personOutputDTO = new PersonOutputDTO();
+        personOutputDTO.setId(person.getId());
+        personOutputDTO.setUsername(person.getUsername());
+        personOutputDTO.setPassword(person.getPassword());
+        personOutputDTO.setName(person.getName());
+        personOutputDTO.setSurname(person.getSurname());
+        personOutputDTO.setCompanyEmail(person.getCompanyEmail());
+        personOutputDTO.setPersonalEmail(person.getPersonalEmail());
+        personOutputDTO.setCity(person.getCity());
+        personOutputDTO.setActive(person.getActive());
+        personOutputDTO.setCreatedDate(person.getCreatedDate());
+        personOutputDTO.setImageUrl(person.getImageUrl());
+        personOutputDTO.setTerminationDate(person.getTerminationDate());
+        return personOutputDTO;
     }
 
 }

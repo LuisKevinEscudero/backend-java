@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PersonServiceImp implements PersonService{
@@ -40,6 +41,18 @@ public class PersonServiceImp implements PersonService{
         if(person.getCompanyEmail() == null || person.getCompanyEmail().isEmpty()) {
             throw new Exception("companyEmail no puede ser nulo");
         }
+        if (!person.getCompanyEmail().contains("@")) {
+            throw new Exception("companyEmail debe contener @");
+        }
+        if(!person.getCompanyEmail().contains(".com") && !person.getCompanyEmail().contains(".es")) {
+            throw new Exception("companyEmail debe contener .com o .es");
+        }
+        if (!person.getPersonalEmail().contains("@")) {
+            throw new Exception("companyEmail debe contener @");
+        }
+        if(!person.getPersonalEmail().contains(".com") && !person.getPersonalEmail().contains(".es")) {
+            throw new Exception("companyEmail debe contener .com o .es");
+        }
         if(person.getPersonalEmail() == null || person.getPersonalEmail().isEmpty()) {
             throw new Exception("personalEmail no puede ser nulo");
         }
@@ -55,16 +68,30 @@ public class PersonServiceImp implements PersonService{
 
     @Override
     public PersonOutputDTO updatePerson(PersonInputDTO personInputDTO, Integer id) throws Exception {
-        return null;
+        Optional<Person> personOptional = personRepository.findById(id);
+        if (personOptional.isPresent()) {
+            Person person = personOptional.get();
+            person.setUsername(personInputDTO.getUsername());
+            person.setPassword(personInputDTO.getPassword());
+            person.setName(personInputDTO.getName());
+            person.setCompanyEmail(personInputDTO.getCompanyEmail());
+            person.setPersonalEmail(personInputDTO.getPersonalEmail());
+            person.setCity(personInputDTO.getCity());
+            personRepository.save(person);
+            return new PersonOutputDTO();
+        } else {
+            throw new Exception("No existe la persona");
+        }
+
     }
 
     @Override
-    public PersonOutputDTO getPerson(Integer id) throws Exception {
-
+    public PersonOutputDTO getPerson(Integer id) throws Exception
+    {
         return personRepository
                 .findById(id)
-                .map(person ->new PersonOutputDTO().PersonInputDTO(person))
-                .orElseThrow(() -> new Exception("No existe la persona"));
+                .map(PersonOutputDTO::of)
+                .orElseThrow(() -> new Exception("No existe la persona con id " + id));
     }
 
     @Override

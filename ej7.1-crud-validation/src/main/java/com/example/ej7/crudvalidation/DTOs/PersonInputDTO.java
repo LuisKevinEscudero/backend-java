@@ -11,8 +11,8 @@ public class PersonInputDTO {
     private String password;
     private String name;
     private String surname;
-    private String company_email;
-    private String personal_email;
+    private String companyEmail;
+    private String personalEmail;
     private String city;
     private Boolean active;
     private Date createdDate;
@@ -25,8 +25,8 @@ public class PersonInputDTO {
         person.setPassword(this.getPassword());
         person.setName(this.getName());
         person.setSurname(this.getSurname());
-        person.setCompanyEmail(this.getCompany_email());
-        person.setPersonalEmail(this.getPersonal_email());
+        person.setCompanyEmail(this.getCompanyEmail());
+        person.setPersonalEmail(this.getPersonalEmail());
         person.setCity(this.getCity());
         person.setActive(this.getActive());
         person.setCreatedDate(this.getCreatedDate());
