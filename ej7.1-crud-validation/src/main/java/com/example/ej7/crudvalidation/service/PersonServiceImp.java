@@ -7,6 +7,7 @@ import com.example.ej7.crudvalidation.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,9 +18,8 @@ public class PersonServiceImp implements PersonService{
     private PersonRepository personRepository;
 
     @Override
-    public PersonOutputDTO createPerson(PersonInputDTO personInputDTO) throws Exception
+    public void createPerson(PersonInputDTO personInputDTO) throws Exception
     {
-
         Person person = personInputDTO.toPerson();
 
         if (person.getUsername() == null || person.getUsername().isEmpty()) {
@@ -59,17 +59,20 @@ public class PersonServiceImp implements PersonService{
         if(person.getCity() == null || person.getCity().isEmpty()) {
             throw new Exception("city no puede ser nulo");
         }
+        person.setCreatedDate(new java.util.Date());
 
         personRepository.save(person);
 
-        return new PersonOutputDTO();
     }
 
 
     @Override
-    public PersonOutputDTO updatePerson(PersonInputDTO personInputDTO, Integer id) throws Exception {
+    public void updatePerson(PersonInputDTO personInputDTO, Integer id) throws Exception
+    {
         Optional<Person> personOptional = personRepository.findById(id);
-        if (personOptional.isPresent()) {
+
+        if (personOptional.isPresent())
+        {
             Person person = personOptional.get();
             person.setUsername(personInputDTO.getUsername());
             person.setPassword(personInputDTO.getPassword());
@@ -78,30 +81,47 @@ public class PersonServiceImp implements PersonService{
             person.setPersonalEmail(personInputDTO.getPersonalEmail());
             person.setCity(personInputDTO.getCity());
             personRepository.save(person);
-            return new PersonOutputDTO();
-        } else {
+
+        }
+        else
+        {
             throw new Exception("No existe la persona");
         }
-
     }
 
     @Override
     public PersonOutputDTO getPerson(Integer id) throws Exception
     {
+        /*return personRepository
+                .findById(id)
+                .map(PersonOutputDTO::of)
+                .orElseThrow(() -> new Exception("No existe la persona con id " + id));*/
         return personRepository
                 .findById(id)
                 .map(PersonOutputDTO::of)
-                .orElseThrow(() -> new Exception("No existe la persona con id " + id));
+                .orElseThrow(() -> new EntityNotFoundException("No existe la persona con id " + id));
     }
 
     @Override
     public void deletePerson(Integer id) throws Exception {
-        personRepository.deleteById(id);
+         //personRepository.deleteById(id);
+        Optional<Person> personOptional = personRepository.findById(id);
+        if (personOptional.isPresent())
+        {
+            Person person = personOptional.get();
+            personRepository.delete(person);
+        } else
+        {
+            throw new Exception("No existe la persona");
+        }
     }
 
     @Override
-    public List<Person> findByName(String name) {
-        return personRepository.findByName(name);
+    public List<PersonOutputDTO> findByName(String name)
+    {
+        Optional<List<PersonOutputDTO>> personOptional = Optional.ofNullable(personRepository.findByName(name));
+        //return personRepository.findByName(name);
+        return personOptional.orElseThrow(() -> new EntityNotFoundException("No existe la persona con nombre " + name));
     }
 
     @Override

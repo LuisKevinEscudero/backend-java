@@ -2,7 +2,6 @@ package com.example.ej7.crudvalidation.controller;
 
 import com.example.ej7.crudvalidation.DTOs.PersonOutputDTO;
 import com.example.ej7.crudvalidation.model.Person;
-import com.example.ej7.crudvalidation.service.PersonService1;
 import com.example.ej7.crudvalidation.service.PersonServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +31,7 @@ public class readController {
     }
 
     @GetMapping("/getPersonByName/{name}")
-    private List<Person> getPersonsByName(@PathVariable("name") String name)
+    private List<PersonOutputDTO> getPersonsByName(@PathVariable("name") String name)
     {
         return personServiceImp.findByName(name);
     }

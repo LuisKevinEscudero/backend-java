@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "a1c1c7cf-c984-461a-8cb1-fe739b6cc67b",
+		"name": "ej7.1.1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22803820"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/createPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"usuario4\",\r\n    \"password\":\"password4\",\r\n    \"name\":\"nombre4\",\r\n    \"surname\":\"surname4\",\r\n    \"company_email\":\"correoempresa4@empresa.com\",\r\n    \"personal_email\":\"correopersonal4@persona.es\",\r\n    \"city\":\"ciudad4\",\r\n    \"active\":\"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/createPerson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"createPerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/getAllPersons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getAllPersons",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAllPersons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/getPerson/10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getPerson/10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getPerson",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/getPersonByName/nombre6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getPersonByName/nombre6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getPersonByName",
+						"nombre6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/deletePerson/11",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/deletePerson/11",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deletePerson",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/updatePerson",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 6,\r\n        \"username\": \"julian\",\r\n        \"password\": \"password6\",\r\n        \"name\": \"nombre6\",\r\n        \"surname\": \"surname6\",\r\n        \"companyEmail\": \"correoempresa6@empresa.com\",\r\n        \"personalEmail\": \"correopersonal6@persona.es\",\r\n        \"city\": \"ciudad6\",\r\n        \"active\": false,\r\n        \"createdDate\": null,\r\n        \"imageUrl\": null,\r\n        \"terminationDate\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/updatePerson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"updatePerson"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

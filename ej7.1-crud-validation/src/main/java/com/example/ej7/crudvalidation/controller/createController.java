@@ -2,8 +2,6 @@ package com.example.ej7.crudvalidation.controller;
 
 import com.example.ej7.crudvalidation.DTOs.PersonInputDTO;
 import com.example.ej7.crudvalidation.DTOs.PersonOutputDTO;
-import com.example.ej7.crudvalidation.model.Person;
-import com.example.ej7.crudvalidation.service.PersonService1;
 import com.example.ej7.crudvalidation.service.PersonServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +15,7 @@ public class createController {
     PersonServiceImp personServiceImp;
 
     @PostMapping("/createPerson")
-    private PersonOutputDTO createPerson(@RequestBody PersonInputDTO person) throws Exception {
-        return personServiceImp.createPerson(person);
+    private void createPerson(@RequestBody PersonInputDTO person) throws Exception {
+        personServiceImp.createPerson(person);
     }
 }

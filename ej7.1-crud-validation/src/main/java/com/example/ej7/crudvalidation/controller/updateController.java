@@ -1,8 +1,10 @@
 package com.example.ej7.crudvalidation.controller;
 
-import com.example.ej7.crudvalidation.model.Person;
-import com.example.ej7.crudvalidation.service.PersonService1;
+import com.example.ej7.crudvalidation.DTOs.PersonInputDTO;
+import com.example.ej7.crudvalidation.DTOs.PersonOutputDTO;
+import com.example.ej7.crudvalidation.service.PersonServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class updateController {
 
     @Autowired
-    PersonService1 personService;
+    PersonServiceImp personServiceImp;
 
-    @PutMapping("/updatePerson")
-    private Person update(@RequestBody Person person) {
-        personService.saveOrUpdate(person);
-        return person;
+    @PutMapping("/updatePerson/{id}")
+    private PersonOutputDTO updatePerson(@RequestBody PersonInputDTO person, @PathVariable Integer id) throws Exception
+    {
+        personServiceImp.updatePerson(person, id);
+        return  personServiceImp.getPerson(id);
     }
 }
