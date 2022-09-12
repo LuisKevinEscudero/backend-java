@@ -2,14 +2,16 @@ package com.example.ej7.crudvalidation.service;
 
 import com.example.ej7.crudvalidation.DTOs.PersonInputDTO;
 import com.example.ej7.crudvalidation.DTOs.PersonOutputDTO;
+import com.example.ej7.crudvalidation.exceptions.EntityNotFoundException;
+import com.example.ej7.crudvalidation.exceptions.UnprocessableEntityException;
 import com.example.ej7.crudvalidation.model.Person;
 import com.example.ej7.crudvalidation.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
+
 
 @Component
 public class PersonServiceImp implements PersonService{
@@ -23,41 +25,41 @@ public class PersonServiceImp implements PersonService{
         Person person = personInputDTO.toPerson();
 
         if (person.getUsername() == null || person.getUsername().isEmpty()) {
-            throw new Exception("username no puede ser nulo");
+            throw new UnprocessableEntityException("username no puede ser nulo",422);
         }
         if(person.getUsername().length() < 3) {
-            throw new Exception("username debe tener al menos 3 caracteres");
+            throw new UnprocessableEntityException("username debe tener al menos 3 caracteres",422);
         }
         if(person.getUsername().length() > 10) {
-            throw new Exception("username debe tener menos de 10 caracteres");
+            throw new UnprocessableEntityException("username debe tener menos de 10 caracteres",422);
         }
         if (person.getPassword() == null || person.getPassword().isEmpty()) {
-            throw new Exception("password no puede ser nulo");
+            throw new UnprocessableEntityException("password no puede ser nulo",422);
         }
         if (person.getName()==null)
         {
-            throw new Exception("Name no puede ser nulo");
+            throw new UnprocessableEntityException("Name no puede ser nulo",422);
         }
         if(person.getCompanyEmail() == null || person.getCompanyEmail().isEmpty()) {
-            throw new Exception("companyEmail no puede ser nulo");
+            throw new UnprocessableEntityException("companyEmail no puede ser nulo",422);
         }
         if (!person.getCompanyEmail().contains("@")) {
-            throw new Exception("companyEmail debe contener @");
+            throw new UnprocessableEntityException("companyEmail debe contener @",422);
         }
         if(!person.getCompanyEmail().contains(".com") && !person.getCompanyEmail().contains(".es")) {
-            throw new Exception("companyEmail debe contener .com o .es");
+            throw new UnprocessableEntityException("companyEmail debe contener .com o .es",422);
         }
         if (!person.getPersonalEmail().contains("@")) {
-            throw new Exception("companyEmail debe contener @");
+            throw new UnprocessableEntityException("companyEmail debe contener @",422);
         }
         if(!person.getPersonalEmail().contains(".com") && !person.getPersonalEmail().contains(".es")) {
-            throw new Exception("companyEmail debe contener .com o .es");
+            throw new UnprocessableEntityException("companyEmail debe contener .com o .es",422);
         }
         if(person.getPersonalEmail() == null || person.getPersonalEmail().isEmpty()) {
-            throw new Exception("personalEmail no puede ser nulo");
+            throw new UnprocessableEntityException("personalEmail no puede ser nulo",422);
         }
         if(person.getCity() == null || person.getCity().isEmpty()) {
-            throw new Exception("city no puede ser nulo");
+            throw new UnprocessableEntityException("city no puede ser nulo",422);
         }
         person.setCreatedDate(new java.util.Date());
 
@@ -85,43 +87,47 @@ public class PersonServiceImp implements PersonService{
         }
         else
         {
-            throw new Exception("No existe la persona");
+            throw new EntityNotFoundException("No existe la persona",404);
         }
     }
 
     @Override
     public PersonOutputDTO getPerson(Integer id) throws Exception
     {
-        /*return personRepository
-                .findById(id)
-                .map(PersonOutputDTO::of)
-                .orElseThrow(() -> new Exception("No existe la persona con id " + id));*/
         return personRepository
                 .findById(id)
                 .map(PersonOutputDTO::of)
-                .orElseThrow(() -> new EntityNotFoundException("No existe la persona con id " + id));
+                .orElseThrow(() -> new EntityNotFoundException("No existe la persona con id " + id,404));
     }
+
 
     @Override
     public void deletePerson(Integer id) throws Exception {
-         //personRepository.deleteById(id);
+        //personRepository.deleteById(id);
         Optional<Person> personOptional = personRepository.findById(id);
         if (personOptional.isPresent())
         {
             Person person = personOptional.get();
             personRepository.delete(person);
-        } else
+        }
+        else
         {
-            throw new Exception("No existe la persona");
+            throw new EntityNotFoundException("No existe la persona con id " + id,404);
         }
     }
 
     @Override
-    public List<PersonOutputDTO> findByName(String name)
+    public List<PersonOutputDTO> findByName(String name) throws Exception
     {
-        Optional<List<PersonOutputDTO>> personOptional = Optional.ofNullable(personRepository.findByName(name));
-        //return personRepository.findByName(name);
-        return personOptional.orElseThrow(() -> new EntityNotFoundException("No existe la persona con nombre " + name));
+        List<PersonOutputDTO> personOptional = personRepository.findByName(name);
+        if (personOptional.isEmpty())
+        {
+            throw new EntityNotFoundException("No existe la persona con nombre " + name,404);
+        }
+        else
+        {
+            return personOptional;
+        }
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.example.ej7.crudvalidation.DTOs.PersonInputDTO;
 import com.example.ej7.crudvalidation.DTOs.PersonOutputDTO;
 import com.example.ej7.crudvalidation.model.Person;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 public interface PersonService {
@@ -12,7 +13,7 @@ public interface PersonService {
     PersonOutputDTO getPerson(Integer id) throws Exception;
     void deletePerson(Integer id) throws Exception;
 
-    List<PersonOutputDTO> findByName(String name);
+    List<PersonOutputDTO> findByName(String name) throws Exception;
     List<Person> findAll();
 
 }

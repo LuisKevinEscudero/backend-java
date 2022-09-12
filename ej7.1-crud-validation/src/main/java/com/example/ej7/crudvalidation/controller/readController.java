@@ -31,7 +31,7 @@ public class readController {
     }
 
     @GetMapping("/getPersonByName/{name}")
-    private List<PersonOutputDTO> getPersonsByName(@PathVariable("name") String name)
+    private List<PersonOutputDTO> getPersonsByName(@PathVariable("name") String name) throws Exception
     {
         return personServiceImp.findByName(name);
     }
