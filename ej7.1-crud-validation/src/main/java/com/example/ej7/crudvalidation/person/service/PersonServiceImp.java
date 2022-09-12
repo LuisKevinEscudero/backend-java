@@ -1,11 +1,11 @@
-package com.example.ej7.crudvalidation.service;
+package com.example.ej7.crudvalidation.person.service;
 
-import com.example.ej7.crudvalidation.DTOs.PersonInputDTO;
-import com.example.ej7.crudvalidation.DTOs.PersonOutputDTO;
+import com.example.ej7.crudvalidation.person.DTOs.PersonInputDTO;
+import com.example.ej7.crudvalidation.person.DTOs.PersonOutputDTO;
 import com.example.ej7.crudvalidation.exceptions.EntityNotFoundException;
 import com.example.ej7.crudvalidation.exceptions.UnprocessableEntityException;
-import com.example.ej7.crudvalidation.model.Person;
-import com.example.ej7.crudvalidation.repository.PersonRepository;
+import com.example.ej7.crudvalidation.person.model.Person;
+import com.example.ej7.crudvalidation.person.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

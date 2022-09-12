@@ -1,6 +1,6 @@
-package com.example.ej7.crudvalidation.DTOs;
+package com.example.ej7.crudvalidation.person.DTOs;
 
-import com.example.ej7.crudvalidation.model.Person;
+import com.example.ej7.crudvalidation.person.model.Person;
 import lombok.Data;
 import java.util.Date;
 

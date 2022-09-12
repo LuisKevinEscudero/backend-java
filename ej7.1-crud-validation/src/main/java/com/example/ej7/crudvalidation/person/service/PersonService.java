@@ -1,10 +1,9 @@
-package com.example.ej7.crudvalidation.service;
+package com.example.ej7.crudvalidation.person.service;
 
-import com.example.ej7.crudvalidation.DTOs.PersonInputDTO;
-import com.example.ej7.crudvalidation.DTOs.PersonOutputDTO;
-import com.example.ej7.crudvalidation.model.Person;
+import com.example.ej7.crudvalidation.person.DTOs.PersonInputDTO;
+import com.example.ej7.crudvalidation.person.DTOs.PersonOutputDTO;
+import com.example.ej7.crudvalidation.person.model.Person;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 public interface PersonService {

@@ -1,6 +1,6 @@
-package com.example.ej7.crudvalidation.controller;
+package com.example.ej7.crudvalidation.person.controller;
 
-import com.example.ej7.crudvalidation.service.PersonServiceImp;
+import com.example.ej7.crudvalidation.person.service.PersonServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package com.example.ej7.crudvalidation.model;
+package com.example.ej7.crudvalidation.person.model;
 
 import lombok.Data;
 

@@ -1,8 +1,8 @@
-package com.example.ej7.crudvalidation.controller;
+package com.example.ej7.crudvalidation.person.controller;
 
-import com.example.ej7.crudvalidation.DTOs.PersonOutputDTO;
-import com.example.ej7.crudvalidation.model.Person;
-import com.example.ej7.crudvalidation.service.PersonServiceImp;
+import com.example.ej7.crudvalidation.person.DTOs.PersonOutputDTO;
+import com.example.ej7.crudvalidation.person.model.Person;
+import com.example.ej7.crudvalidation.person.service.PersonServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
