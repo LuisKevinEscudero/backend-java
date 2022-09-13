@@ -2,6 +2,7 @@ package com.example.ej7.crudvalidation.student.model;
 
 
 import com.example.ej7.crudvalidation.person.model.Person;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,8 +11,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "estudiantes")
-@Getter
-@Setter
+@Data
 public class Student implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
@@ -37,6 +37,5 @@ public class Student implements Serializable {
 
     //@OneToMany
     //List<Alumnos_Estudios> estudios;
-
 
 }

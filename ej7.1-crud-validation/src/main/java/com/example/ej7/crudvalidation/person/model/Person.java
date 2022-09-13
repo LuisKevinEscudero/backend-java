@@ -11,7 +11,7 @@ import java.util.Date;
 @Table
 public class Person implements Serializable {
     @Id
-    @Column
+    @Column(name = "idPerson", nullable = false)
     @GeneratedValue
     private int id;
 

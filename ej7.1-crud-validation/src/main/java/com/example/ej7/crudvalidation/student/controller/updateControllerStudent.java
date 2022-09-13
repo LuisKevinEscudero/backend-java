@@ -16,8 +16,9 @@ public class updateControllerStudent {
     StudentServiceImp studentServiceImp;
 
     //creating a put mapping that updates the student detail
-    @PutMapping("/updateStudent")
-    private StudentOutputDTO updateStudent(@RequestBody StudentInputDTO student, @PathVariable Integer id) throws Exception {
+    @PutMapping("/updateStudent/{id}")
+    private StudentOutputDTO updateStudent(@RequestBody StudentInputDTO student, @PathVariable Integer id) throws Exception
+    {
         studentServiceImp.updateStudent(student, id);
         return studentServiceImp.getStudent(id);
     }

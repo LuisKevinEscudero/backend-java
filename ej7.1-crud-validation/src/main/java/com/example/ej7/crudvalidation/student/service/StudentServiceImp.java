@@ -1,6 +1,7 @@
 package com.example.ej7.crudvalidation.student.service;
 
 import com.example.ej7.crudvalidation.exceptions.UnprocessableEntityException;
+import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.student.DTOs.StudentInputDTO;
 import com.example.ej7.crudvalidation.student.DTOs.StudentOutputDTO;
 import com.example.ej7.crudvalidation.student.model.Student;
@@ -19,6 +20,7 @@ public class StudentServiceImp implements StudentService {
     @Override
     public void createStudent(StudentInputDTO studentInputDTO) throws Exception
     {
+
         Student student = studentInputDTO.toStudent();
         if (student.getNumHoursWeek() == null)
         {
@@ -46,6 +48,7 @@ public class StudentServiceImp implements StudentService {
             Student student = studentOptional.get();
             student.setNumHoursWeek(studentInputDTO.getNumHoursWeek());
             student.setBranch(studentInputDTO.getBranch());
+            student.setComents(studentInputDTO.getComents());
             studentRepository.save(student);
         }
         else
@@ -78,19 +81,6 @@ public class StudentServiceImp implements StudentService {
         }
     }
 
-    @Override
-    public List<StudentOutputDTO> findByName(String name) throws Exception
-    {
-        List<StudentOutputDTO> studentOutputDTOList = studentRepository.findByName(name);
-        if (studentOutputDTOList.isEmpty())
-        {
-            throw new UnprocessableEntityException("No hay estudiantes con el nombre " +name,422);
-        }
-        else
-        {
-            return studentOutputDTOList;
-        }
-    }
 
     @Override
     public List<Student> findAll() {
