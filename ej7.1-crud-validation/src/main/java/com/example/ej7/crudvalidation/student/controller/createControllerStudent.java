@@ -14,9 +14,8 @@ public class createControllerStudent {
     StudentServiceImp studentServiceImp;
 
     @PostMapping("/createStudent")
-    private void createStudent(@RequestBody StudentInputDTO student) throws Exception {
-        StudentInputDTO a = student;
-
+    private void createStudent(@RequestBody StudentInputDTO student) throws Exception
+    {
         studentServiceImp.createStudent(student);
     }
 }
