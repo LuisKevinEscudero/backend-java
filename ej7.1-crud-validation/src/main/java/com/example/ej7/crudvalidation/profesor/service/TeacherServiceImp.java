@@ -27,6 +27,8 @@ public class TeacherServiceImp implements TeacherService {
             throw new UnprocessableEntityException("La rama no puede ser nula",422);
         }
 
+
+
         teacherRepository.save(teacher);
     }
 
