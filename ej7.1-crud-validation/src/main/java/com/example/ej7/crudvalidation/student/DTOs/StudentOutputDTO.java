@@ -26,4 +26,15 @@ public class StudentOutputDTO {
         //studentOutputDTO.setEstudios(student.getEstudios());
         return studentOutputDTO;
     }
+
+    public static StudentOutputDTO ofSimple(Student student) {
+        StudentOutputDTO studentOutputDTO = new StudentOutputDTO();
+        studentOutputDTO.setId(student.getId());
+        studentOutputDTO.setNumHoursWeek(student.getNumHoursWeek());
+        studentOutputDTO.setComents(student.getComents());
+        //studentOutputDTO.setProfesor(student.getProfesor());
+        studentOutputDTO.setBranch(student.getBranch());
+        //studentOutputDTO.setEstudios(student.getEstudios());
+        return studentOutputDTO;
+    }
 }

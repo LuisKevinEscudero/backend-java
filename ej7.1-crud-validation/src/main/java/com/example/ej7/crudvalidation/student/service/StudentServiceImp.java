@@ -86,6 +86,15 @@ public class StudentServiceImp implements StudentService {
     public List<Student> findAll() {
         return studentRepository.findAll();
     }
+
+    @Override
+    public StudentOutputDTO getStudentSimple(int id, String ouputType) throws Exception
+    {
+        return studentRepository
+                .findById(id)
+                .map(StudentOutputDTO::ofSimple)
+                .orElseThrow(() -> new UnprocessableEntityException("El estudiante con id " +id+" no existe",422));
+    }
 }
 
 

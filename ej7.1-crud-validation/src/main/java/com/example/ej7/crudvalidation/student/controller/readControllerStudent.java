@@ -1,7 +1,6 @@
 package com.example.ej7.crudvalidation.student.controller;
 
 import com.example.ej7.crudvalidation.student.DTOs.StudentOutputDTO;
-import com.example.ej7.crudvalidation.student.DTOs.StudentOutputDTOSimple;
 import com.example.ej7.crudvalidation.student.model.Student;
 import com.example.ej7.crudvalidation.student.service.StudentServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +26,20 @@ public class readControllerStudent {
 
     //creating a get mapping that retrieves the detail of a specific student
     @GetMapping("/getStudent/{studentid}")
-    private StudentOutputDTO getStudent(@PathVariable("studentid") int studentid/*, @RequestParam String ouputType*/) throws Exception {
-        return studentServiceImp.getStudent(studentid);
+    private StudentOutputDTO getStudent(@PathVariable("studentid") int studentid, @RequestParam String ouputType) throws Exception
+    {
+        String tipo= "full";
+        if (ouputType.equals(tipo))
+        {
+            return studentServiceImp.getStudent(studentid);
+
+        }
+        else
+        {
+            return studentServiceImp.getStudentSimple(studentid, ouputType);
+        }
+
     }
 
-    /*@GetMapping("/getStudent/{studentid}")
-    private StudentOutputDTOSimple getStudent(@PathVariable("studentid") int studentid) throws Exception {
-        return studentServiceImp.getStudent(studentid);
-    }*/
 
 }
