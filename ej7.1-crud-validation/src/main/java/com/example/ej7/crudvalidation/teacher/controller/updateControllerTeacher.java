@@ -1,8 +1,8 @@
-package com.example.ej7.crudvalidation.profesor.controller;
+package com.example.ej7.crudvalidation.teacher.controller;
 
-import com.example.ej7.crudvalidation.profesor.DTOs.TeacherInputDTO;
-import com.example.ej7.crudvalidation.profesor.DTOs.TeacherOutputDTO;
-import com.example.ej7.crudvalidation.profesor.service.TeacherServiceImp;
+import com.example.ej7.crudvalidation.teacher.DTOs.TeacherInputDTO;
+import com.example.ej7.crudvalidation.teacher.DTOs.TeacherOutputDTO;
+import com.example.ej7.crudvalidation.teacher.service.TeacherServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;

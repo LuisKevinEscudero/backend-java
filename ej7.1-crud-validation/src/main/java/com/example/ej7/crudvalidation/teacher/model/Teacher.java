@@ -1,14 +1,17 @@
-package com.example.ej7.crudvalidation.profesor.model;
+package com.example.ej7.crudvalidation.teacher.model;
 
 import com.example.ej7.crudvalidation.person.model.Person;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "profesores")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Teacher implements Serializable {
     @Id
     @Column(name = "id", nullable = false)

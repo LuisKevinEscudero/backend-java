@@ -1,8 +1,8 @@
-package com.example.ej7.crudvalidation.profesor.service;
+package com.example.ej7.crudvalidation.teacher.service;
 
-import com.example.ej7.crudvalidation.profesor.DTOs.TeacherInputDTO;
-import com.example.ej7.crudvalidation.profesor.DTOs.TeacherOutputDTO;
-import com.example.ej7.crudvalidation.profesor.model.Teacher;
+import com.example.ej7.crudvalidation.teacher.DTOs.TeacherInputDTO;
+import com.example.ej7.crudvalidation.teacher.DTOs.TeacherOutputDTO;
+import com.example.ej7.crudvalidation.teacher.model.Teacher;
 
 import java.util.List;
 

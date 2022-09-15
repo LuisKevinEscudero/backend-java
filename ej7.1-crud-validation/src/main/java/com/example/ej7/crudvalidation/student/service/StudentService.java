@@ -14,7 +14,7 @@ public interface StudentService {
     StudentOutputDTO getStudent(Integer id) throws Exception;
     void deleteStudent(Integer id) throws Exception;
 
-    List<Student> findAll();
+    List<Student> findAllStudents() throws Exception;
     StudentOutputDTO getStudentSimple(int id, String ouputType) throws Exception;
 
 

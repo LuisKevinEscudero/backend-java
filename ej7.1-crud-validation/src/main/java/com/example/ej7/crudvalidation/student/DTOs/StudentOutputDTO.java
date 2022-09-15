@@ -2,16 +2,21 @@ package com.example.ej7.crudvalidation.student.DTOs;
 
 import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.student.model.Student;
-import lombok.Data;
+import com.example.ej7.crudvalidation.teacher.DTOs.TeacherOutputDTO;
+import com.example.ej7.crudvalidation.teacher.model.Teacher;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class StudentOutputDTO {
 
     private Integer id;
     private Person person;
     private Integer numHoursWeek;
     private String coments;
-    //private Profesor profesor;
+    private TeacherOutputDTO teacher;
     private String branch;
     //private List<Alumnos_Estudios> estudios;
 
@@ -21,7 +26,7 @@ public class StudentOutputDTO {
         studentOutputDTO.setPerson(student.getPerson());
         studentOutputDTO.setNumHoursWeek(student.getNumHoursWeek());
         studentOutputDTO.setComents(student.getComents());
-        //studentOutputDTO.setProfesor(student.getProfesor());
+        studentOutputDTO.setTeacher(new TeacherOutputDTO(student.getTeacher()));
         studentOutputDTO.setBranch(student.getBranch());
         //studentOutputDTO.setEstudios(student.getEstudios());
         return studentOutputDTO;
@@ -32,7 +37,6 @@ public class StudentOutputDTO {
         studentOutputDTO.setId(student.getId());
         studentOutputDTO.setNumHoursWeek(student.getNumHoursWeek());
         studentOutputDTO.setComents(student.getComents());
-        //studentOutputDTO.setProfesor(student.getProfesor());
         studentOutputDTO.setBranch(student.getBranch());
         //studentOutputDTO.setEstudios(student.getEstudios());
         return studentOutputDTO;

@@ -2,6 +2,7 @@ package com.example.ej7.crudvalidation.student.DTOs;
 
 import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.student.model.Student;
+import com.example.ej7.crudvalidation.teacher.model.Teacher;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -15,7 +16,7 @@ public class StudentInputDTO {
     private Person person;
     private Integer numHoursWeek;
     private String coments;
-    //private Profesor profesor;
+    private Teacher teacher;
     private String branch;
     //private List<Alumnos_Estudios> estudios;
 
@@ -25,7 +26,7 @@ public class StudentInputDTO {
         student.setPerson(this.person);
         student.setNumHoursWeek(this.numHoursWeek);
         student.setComents(this.coments);
-        //student.setProfesor(this.profesor);
+        student.setTeacher(this.teacher);
         student.setBranch(this.branch);
         //student.setEstudios(this.estudios);
         return student;

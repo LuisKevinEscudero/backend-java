@@ -1,10 +1,10 @@
-package com.example.ej7.crudvalidation.profesor.service;
+package com.example.ej7.crudvalidation.teacher.service;
 
 import com.example.ej7.crudvalidation.exceptions.UnprocessableEntityException;
-import com.example.ej7.crudvalidation.profesor.DTOs.TeacherInputDTO;
-import com.example.ej7.crudvalidation.profesor.DTOs.TeacherOutputDTO;
-import com.example.ej7.crudvalidation.profesor.model.Teacher;
-import com.example.ej7.crudvalidation.profesor.repository.TeacherRepository;
+import com.example.ej7.crudvalidation.teacher.DTOs.TeacherInputDTO;
+import com.example.ej7.crudvalidation.teacher.DTOs.TeacherOutputDTO;
+import com.example.ej7.crudvalidation.teacher.model.Teacher;
+import com.example.ej7.crudvalidation.teacher.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,10 +1,13 @@
-package com.example.ej7.crudvalidation.profesor.DTOs;
+package com.example.ej7.crudvalidation.teacher.DTOs;
 
 import com.example.ej7.crudvalidation.person.model.Person;
-import com.example.ej7.crudvalidation.profesor.model.Teacher;
-import lombok.Data;
+import com.example.ej7.crudvalidation.teacher.model.Teacher;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class TeacherOutputDTO {
 
     private Integer id;
@@ -29,5 +32,13 @@ public class TeacherOutputDTO {
         teacherOutputDTO.setComents(teacher.getComents());
         teacherOutputDTO.setBranch(teacher.getBranch());
         return teacherOutputDTO;
+    }
+
+    public TeacherOutputDTO(Teacher teacher)
+    {
+        this.id = teacher.getId();
+        this.person = teacher.getPerson();
+        this.coments = teacher.getComents();
+        this.branch = teacher.getBranch();
     }
 }

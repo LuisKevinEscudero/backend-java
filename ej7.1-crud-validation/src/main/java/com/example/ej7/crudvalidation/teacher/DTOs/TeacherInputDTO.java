@@ -1,7 +1,7 @@
-package com.example.ej7.crudvalidation.profesor.DTOs;
+package com.example.ej7.crudvalidation.teacher.DTOs;
 
 import com.example.ej7.crudvalidation.person.model.Person;
-import com.example.ej7.crudvalidation.profesor.model.Teacher;
+import com.example.ej7.crudvalidation.teacher.model.Teacher;
 import lombok.Data;
 
 @Data

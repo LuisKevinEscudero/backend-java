@@ -14,6 +14,7 @@ public class UnprocessableEntityException extends RuntimeException
     public UnprocessableEntityException(String message, int httpCode)
     {
         super(message);
+        System.out.println(message);
         setTimestamp(new Date());
         setHttpCode(httpCode);
     }

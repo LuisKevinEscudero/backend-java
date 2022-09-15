@@ -21,7 +21,7 @@ public class readControllerStudent {
     @GetMapping("/getAllStudents")
     private List<Student> getAllStudents()
     {
-        return studentServiceImp.findAll();
+        return studentServiceImp.findAllStudents();
     }
 
     //creating a get mapping that retrieves the detail of a specific student
