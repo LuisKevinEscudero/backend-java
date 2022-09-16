@@ -22,7 +22,7 @@ public class createControllerStudent {
     TeacherService teacherService;
 
     @PostMapping("/createStudent")
-    private void createStudent(@RequestBody StudentInputDTO student) throws Exception
+    public void createStudent(@RequestBody StudentInputDTO student) throws Exception
     {
         List<Teacher> teachers = teacherService.findAll();
 

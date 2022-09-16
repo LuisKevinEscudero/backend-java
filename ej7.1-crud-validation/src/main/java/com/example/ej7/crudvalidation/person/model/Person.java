@@ -1,12 +1,15 @@
 package com.example.ej7.crudvalidation.person.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table
 public class Person implements Serializable {

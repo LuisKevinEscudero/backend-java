@@ -14,7 +14,7 @@ public class createController {
     PersonServiceImp personServiceImp;
 
     @PostMapping("/createPerson")
-    private void createPerson(@RequestBody PersonInputDTO person) throws Exception {
+    public void createPerson(@RequestBody PersonInputDTO person) throws Exception {
         personServiceImp.createPerson(person);
     }
 }

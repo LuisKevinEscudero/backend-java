@@ -3,7 +3,6 @@ package com.example.ej7.crudvalidation.student.DTOs;
 import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.student.model.Student;
 import com.example.ej7.crudvalidation.teacher.DTOs.TeacherOutputDTO;
-import com.example.ej7.crudvalidation.teacher.model.Teacher;
 import lombok.*;
 
 @Getter

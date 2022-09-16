@@ -85,9 +85,9 @@ public class StudentServiceImp implements StudentService {
 
     @Override
     public List<Student> findAllStudents() {
-        List<Student> students = studentRepository.findAll();
-        return students;
-        //return studentRepository.findAll();
+        //List<Student> students = studentRepository.findAll();
+        //return students;
+        return studentRepository.findAll();
     }
 
     @Override

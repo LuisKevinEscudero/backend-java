@@ -2,9 +2,12 @@ package com.example.ej7.crudvalidation.teacher.DTOs;
 
 import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.teacher.model.Teacher;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class TeacherInputDTO {
     private Integer id;
     Person person;

@@ -3,13 +3,12 @@ package com.example.ej7.crudvalidation.student.DTOs;
 import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.student.model.Student;
 import com.example.ej7.crudvalidation.teacher.model.Teacher;
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class StudentInputDTO {
 
     private Integer id;

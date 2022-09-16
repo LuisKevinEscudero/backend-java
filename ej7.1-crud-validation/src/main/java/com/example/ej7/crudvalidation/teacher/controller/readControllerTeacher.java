@@ -19,14 +19,14 @@ public class readControllerTeacher {
 
     //creating a get mapping that retrieves all the teachers detail from the database
     @GetMapping("/getAllTeachers")
-    private List<Teacher> getAllTeachers()
+    public List<Teacher> getAllTeachers()
     {
         return teacherServiceImp.findAll();
     }
 
     //creating a get mapping that retrieves the detail of a specific teacher
     @GetMapping("/getTeacher/{teacherid}")
-    private TeacherOutputDTO getTeacher(@PathVariable("teacherid") int teacherid, @RequestParam String ouputType) throws Exception
+    public TeacherOutputDTO getTeacher(@PathVariable("teacherid") int teacherid, @RequestParam String ouputType) throws Exception
     {
         String tipo= "full";
         if (ouputType.equals(tipo))

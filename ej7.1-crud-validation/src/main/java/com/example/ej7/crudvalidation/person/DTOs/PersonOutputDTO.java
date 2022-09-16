@@ -1,11 +1,14 @@
 package com.example.ej7.crudvalidation.person.DTOs;
 
 import com.example.ej7.crudvalidation.person.model.Person;
-import lombok.Data;
+import lombok.*;
 
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class PersonOutputDTO {
 
     private int id;

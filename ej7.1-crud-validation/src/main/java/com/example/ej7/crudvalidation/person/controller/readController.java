@@ -18,20 +18,20 @@ public class readController {
 
 
     @GetMapping("/getAllPersons")
-    private List<Person> getAllPersons()
+    public List<Person> getAllPersons()
     {
         return personServiceImp.findAll();
     }
     //creating a get mapping that retrieves the detail of a specific person
 
     @GetMapping("/getPerson/{personid}")
-    private PersonOutputDTO getPersons(@PathVariable("personid") int personid) throws Exception {
+    public PersonOutputDTO getPersons(@PathVariable("personid") int personid) throws Exception {
         //return personService.getPersonById(personid);
         return personServiceImp.getPerson(personid);
     }
 
     @GetMapping("/getPersonByName/{name}")
-    private List<PersonOutputDTO> getPersonsByName(@PathVariable("name") String name) throws Exception
+    public List<PersonOutputDTO> getPersonsByName(@PathVariable("name") String name) throws Exception
     {
         return personServiceImp.findByName(name);
     }

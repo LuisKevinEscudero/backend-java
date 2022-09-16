@@ -19,14 +19,14 @@ public class readControllerStudent {
 
     //creating a get mapping that retrieves all the students detail from the database
     @GetMapping("/getAllStudents")
-    private List<Student> getAllStudents()
+    public List<Student> getAllStudents()
     {
         return studentServiceImp.findAllStudents();
     }
 
     //creating a get mapping that retrieves the detail of a specific student
     @GetMapping("/getStudent/{studentid}")
-    private StudentOutputDTO getStudent(@PathVariable("studentid") int studentid, @RequestParam String ouputType) throws Exception
+    public StudentOutputDTO getStudent(@PathVariable("studentid") int studentid, @RequestParam String ouputType) throws Exception
     {
         String tipo= "full";
         if (ouputType.equals(tipo))

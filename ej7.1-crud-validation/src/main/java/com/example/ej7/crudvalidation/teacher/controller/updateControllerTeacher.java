@@ -17,7 +17,7 @@ public class updateControllerTeacher {
 
     //creating a put mapping that updates the teacher detail
     @PutMapping("/updateTeacher/{id}")
-    private TeacherOutputDTO updateTeacher(@RequestBody TeacherInputDTO teacher, @PathVariable Integer id) throws Exception
+    public TeacherOutputDTO updateTeacher(@RequestBody TeacherInputDTO teacher, @PathVariable Integer id) throws Exception
     {
         teacherServiceImp.updateTeacher(teacher, id);
         return teacherServiceImp.getTeacher(id);

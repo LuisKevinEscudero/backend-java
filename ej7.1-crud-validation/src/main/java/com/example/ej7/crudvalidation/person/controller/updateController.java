@@ -16,7 +16,7 @@ public class updateController {
     PersonServiceImp personServiceImp;
 
     @PutMapping("/updatePerson/{id}")
-    private PersonOutputDTO updatePerson(@RequestBody PersonInputDTO person, @PathVariable Integer id) throws Exception
+    public PersonOutputDTO updatePerson(@RequestBody PersonInputDTO person, @PathVariable Integer id) throws Exception
     {
         personServiceImp.updatePerson(person, id);
         return  personServiceImp.getPerson(id);
