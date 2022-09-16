@@ -3,6 +3,8 @@ package com.example.ej7.crudvalidation.student.model;
 
 import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.teacher.model.Teacher;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,6 +16,7 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Student implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
