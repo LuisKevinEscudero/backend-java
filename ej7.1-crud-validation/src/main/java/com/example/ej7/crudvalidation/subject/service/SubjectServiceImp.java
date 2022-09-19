@@ -1,6 +1,10 @@
 package com.example.ej7.crudvalidation.subject.service;
 
 import com.example.ej7.crudvalidation.exceptions.UnprocessableEntityException;
+import com.example.ej7.crudvalidation.student.DTOs.StudentInputDTO;
+import com.example.ej7.crudvalidation.student.DTOs.StudentOutputDTO;
+import com.example.ej7.crudvalidation.student.model.Student;
+import com.example.ej7.crudvalidation.student.repository.StudentRepository;
 import com.example.ej7.crudvalidation.subject.DTOs.SubjectInputDTO;
 import com.example.ej7.crudvalidation.subject.DTOs.SubjectOutputDTO;
 import com.example.ej7.crudvalidation.subject.model.Subject;
@@ -17,6 +21,9 @@ public class SubjectServiceImp implements SubjectService {
 
     @Autowired
     SubjectRepository subjectRepository;
+
+    @Autowired
+    StudentRepository studentRepository;
 
 
     @Override
@@ -51,8 +58,7 @@ public class SubjectServiceImp implements SubjectService {
             subject.setComment(subjectInputDTO.getComment());
             subject.setFinish_date(subjectInputDTO.getFinish_date());
             subject.setInitial_date(subjectInputDTO.getInitial_date());
-            subject.setStudent(subjectInputDTO.getStudent());
-            //subject.setTeacher(subjectInputDTO.getTeacher());
+           // subject.setStudent(subjectInputDTO.getStudent());
             subjectRepository.save(subject);
         }
         else
@@ -95,4 +101,22 @@ public class SubjectServiceImp implements SubjectService {
                 .map(SubjectOutputDTO::ofSimple)
                 .orElseThrow(() -> new UnprocessableEntityException("La asignatura no existe",422));
     }
+
+
+    public void assignSubject(int id_subject, int id_student) throws Exception
+    {
+        Student student = new Student();
+        student= studentRepository.findById(id_student).get();
+
+        Subject subject = new Subject();
+        subject= subjectRepository.findById(id_subject).get();
+
+        List<Student> students = null;
+        students.add(student);
+
+        subject.setStudents(students);
+
+        subjectRepository.save(subject);
+    }
+
 }

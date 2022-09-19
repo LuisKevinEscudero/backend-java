@@ -2,6 +2,7 @@ package com.example.ej7.crudvalidation.student.model;
 
 
 import com.example.ej7.crudvalidation.person.model.Person;
+import com.example.ej7.crudvalidation.subject.model.Subject;
 import com.example.ej7.crudvalidation.teacher.model.Teacher;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -9,6 +10,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "estudiantes")
@@ -40,7 +42,8 @@ public class Student implements Serializable {
     @Column(name = "rama")
     String branch;
 
-    //@OneToMany
-    //List<Alumnos_Estudios> estudios;
+    @ManyToMany(mappedBy = "students")
+    @JsonIgnore
+    List<Subject> studies;
 
 }

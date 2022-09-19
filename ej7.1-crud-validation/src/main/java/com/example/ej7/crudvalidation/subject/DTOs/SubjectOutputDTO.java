@@ -28,8 +28,7 @@ public class SubjectOutputDTO {
     {
         SubjectOutputDTO subjectOutputDTO = new SubjectOutputDTO();
         subjectOutputDTO.setId(subject.getId());
-        //subjectOutputDTO.setTeacher(subject.getTeacher());
-        subjectOutputDTO.setStudent(subject.getStudent());
+        //subjectOutputDTO.setStudent(subject.getStudent());
         subjectOutputDTO.setAsignatura(subject.getAsignatura());
         subjectOutputDTO.setComment(subject.getComment());
         subjectOutputDTO.setInitial_date(subject.getInitial_date());
@@ -48,4 +47,16 @@ public class SubjectOutputDTO {
         return subjectOutputDTO;
     }
 
+
+    public Subject toSubject()
+    {
+        Subject subject = new Subject();
+        subject.setId(this.getId());
+        subject.setStudents(this.getStudent());
+        subject.setAsignatura(this.getAsignatura());
+        subject.setComment(this.getComment());
+        subject.setInitial_date(this.getInitial_date());
+        subject.setFinish_date(this.getFinish_date());
+        return subject;
+    }
 }

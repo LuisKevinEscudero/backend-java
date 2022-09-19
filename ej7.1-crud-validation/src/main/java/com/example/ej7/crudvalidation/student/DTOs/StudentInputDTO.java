@@ -2,8 +2,11 @@ package com.example.ej7.crudvalidation.student.DTOs;
 
 import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.student.model.Student;
+import com.example.ej7.crudvalidation.subject.model.Subject;
 import com.example.ej7.crudvalidation.teacher.model.Teacher;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,7 +20,7 @@ public class StudentInputDTO {
     private String coments;
     private Teacher teacher;
     private String branch;
-    //private List<Alumnos_Estudios> estudios;
+    private List<Subject> estudios;
 
     public Student toStudent(){
         Student student = new Student();

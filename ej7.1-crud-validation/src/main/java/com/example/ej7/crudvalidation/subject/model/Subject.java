@@ -11,6 +11,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -27,13 +28,13 @@ public class Subject implements Serializable
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    /*@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "profesor_id")
-    Teacher teacher;*/
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_student")
-    Student student;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "estudiantes_asignaturas",
+            joinColumns = @JoinColumn(name = "id_asignatura", referencedColumnName = "id_asignatura"),
+            inverseJoinColumns = @JoinColumn(name = "id_estudiante", referencedColumnName = "id_estudiante")
+    )
+    private List<Student> students;
 
     @Column(name = "asignatura")
     String asignatura;

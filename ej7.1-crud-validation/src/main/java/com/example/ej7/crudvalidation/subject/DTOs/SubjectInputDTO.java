@@ -27,8 +27,7 @@ public class SubjectInputDTO {
     public Subject toSubject(){
         Subject subject = new Subject();
         subject.setId(this.id);
-        //subject.setTeacher(this.teacher);
-        subject.setStudent(this.student);
+        //subject.setStudent(this.student);
         subject.setAsignatura(this.asignatura);
         subject.setComment(this.comment);
         subject.setInitial_date(this.initial_date);
