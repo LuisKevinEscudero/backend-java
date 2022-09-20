@@ -30,7 +30,7 @@ public class createControllerStudent {
         {
             for (Teacher t : teachers)
             {
-                if (t.getPerson().getId() == student.getPerson().getId())
+                if (t.getPerson().getIdPerson() == student.getPerson().getIdPerson())
                 {
                     throw new UnprocessableEntityException("Ya existe un profesor con ese id",422);
                 }

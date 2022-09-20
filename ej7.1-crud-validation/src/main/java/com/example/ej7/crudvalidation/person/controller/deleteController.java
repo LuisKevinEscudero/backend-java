@@ -12,9 +12,9 @@ public class deleteController {
     PersonServiceImp personServiceImp;
 
     //creating a delete mapping that deletes a specified person
-    @DeleteMapping("/deletePerson/{personid}")
-    public void deletePerson(@PathVariable("personid") int personid) throws Exception {
-        personServiceImp.deletePerson(personid);
+    @DeleteMapping("/deletePerson/{idPerson}")
+    public void deletePerson(@PathVariable("idPerson") String idPerson) throws Exception {
+        personServiceImp.deletePerson(idPerson);
     }
 
 }

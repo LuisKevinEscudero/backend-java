@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 public class TeacherOutputDTO {
 
-    private Integer id;
+    private String idTeacher;
     Person person;
     String coments;
     String branch;
@@ -18,7 +18,7 @@ public class TeacherOutputDTO {
     public static TeacherOutputDTO of(Teacher teacher)
     {
         TeacherOutputDTO teacherOutputDTO = new TeacherOutputDTO();
-        teacherOutputDTO.setId(teacher.getId());
+        teacherOutputDTO.setIdTeacher(teacher.getIdTeacher());
         teacherOutputDTO.setPerson(teacher.getPerson());
         teacherOutputDTO.setComents(teacher.getComents());
         teacherOutputDTO.setBranch(teacher.getBranch());
@@ -28,7 +28,7 @@ public class TeacherOutputDTO {
     public static TeacherOutputDTO ofSimple(Teacher teacher)
     {
         TeacherOutputDTO teacherOutputDTO = new TeacherOutputDTO();
-        teacherOutputDTO.setId(teacher.getId());
+        teacherOutputDTO.setIdTeacher(teacher.getIdTeacher());
         teacherOutputDTO.setComents(teacher.getComents());
         teacherOutputDTO.setBranch(teacher.getBranch());
         return teacherOutputDTO;
@@ -36,7 +36,7 @@ public class TeacherOutputDTO {
 
     public TeacherOutputDTO(Teacher teacher)
     {
-        this.id = teacher.getId();
+        this.idTeacher = teacher.getIdTeacher();
         this.person = teacher.getPerson();
         this.coments = teacher.getComents();
         this.branch = teacher.getBranch();

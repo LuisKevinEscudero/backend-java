@@ -21,6 +21,7 @@ public class StudentServiceImp implements StudentService {
     public void createStudent(StudentInputDTO studentInputDTO) throws Exception
     {
 
+
         Student student = studentInputDTO.toStudent();
         if (student.getNumHoursWeek() == null)
         {

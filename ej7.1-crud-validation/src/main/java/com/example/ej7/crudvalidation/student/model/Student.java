@@ -2,11 +2,13 @@ package com.example.ej7.crudvalidation.student.model;
 
 
 import com.example.ej7.crudvalidation.person.model.Person;
+import com.example.ej7.crudvalidation.stringSecuenceGenerator.PersonSequenceIdGenerator;
 import com.example.ej7.crudvalidation.subject.model.Subject;
 import com.example.ej7.crudvalidation.teacher.model.Teacher;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,10 +22,20 @@ import java.util.List;
 @NoArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Student implements Serializable {
-    @Id
-    @Column(name = "id", nullable = false)
+    /*@Id
+    @Column(name = "student_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id;*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idStudent")
+    @GenericGenerator(name = "idStudent",
+            strategy = "com.example.ej7.crudvalidation.stringSecuenceGenerator.StudentSequenceIdGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = PersonSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+                    @org.hibernate.annotations.Parameter(name = PersonSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "student"),
+                    @org.hibernate.annotations.Parameter(name = PersonSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d")
+            })
+    private String idStudent;
 
     @OneToOne
     @JoinColumn(name = "idPersona")

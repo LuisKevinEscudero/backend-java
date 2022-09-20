@@ -14,23 +14,23 @@ import java.util.List;
 @NoArgsConstructor
 public class StudentInputDTO {
 
-    private Integer id;
+    private String idStudent;
     private Person person;
     private Integer numHoursWeek;
     private String coments;
     private Teacher teacher;
     private String branch;
-    private List<Subject> estudios;
+    private List<Subject> studies;
 
     public Student toStudent(){
         Student student = new Student();
-        student.setId(this.id);
+        student.setIdStudent(this.idStudent);
         student.setPerson(this.person);
         student.setNumHoursWeek(this.numHoursWeek);
         student.setComents(this.coments);
         student.setTeacher(this.teacher);
         student.setBranch(this.branch);
-        //student.setEstudios(this.estudios);
+        student.setStudies(this.studies);
         return student;
     }
 }

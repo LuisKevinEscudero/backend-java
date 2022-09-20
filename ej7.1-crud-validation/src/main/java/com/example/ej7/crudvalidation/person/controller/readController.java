@@ -24,10 +24,9 @@ public class readController {
     }
     //creating a get mapping that retrieves the detail of a specific person
 
-    @GetMapping("/getPerson/{personid}")
-    public PersonOutputDTO getPersons(@PathVariable("personid") int personid) throws Exception {
-        //return personService.getPersonById(personid);
-        return personServiceImp.getPerson(personid);
+    @GetMapping("/getPerson/{idPerson}")
+    public PersonOutputDTO getPersons(@PathVariable("idPerson") String idPerson) throws Exception {
+        return personServiceImp.getPerson(idPerson);
     }
 
     @GetMapping("/getPersonByName/{name}")

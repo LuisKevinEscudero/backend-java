@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface PersonService {
     void createPerson(PersonInputDTO personInputDTO) throws Exception;
-    void updatePerson(PersonInputDTO personInputDTO, Integer id) throws Exception;
-    PersonOutputDTO getPerson(Integer id) throws Exception;
-    void deletePerson(Integer id) throws Exception;
+    void updatePerson(PersonInputDTO personInputDTO, String idPerson) throws Exception;
+    PersonOutputDTO getPerson(String idPerson) throws Exception;
+    void deletePerson(String idPerson) throws Exception;
 
     List<PersonOutputDTO> findByName(String name) throws Exception;
     List<Person> findAll();

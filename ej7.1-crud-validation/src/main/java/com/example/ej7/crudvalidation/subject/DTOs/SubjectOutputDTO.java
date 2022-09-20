@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,7 +29,7 @@ public class SubjectOutputDTO {
     {
         SubjectOutputDTO subjectOutputDTO = new SubjectOutputDTO();
         subjectOutputDTO.setId(subject.getId());
-        //subjectOutputDTO.setStudent(subject.getStudent());
+        subjectOutputDTO.setStudent(subject.getStudents().get(0));
         subjectOutputDTO.setAsignatura(subject.getAsignatura());
         subjectOutputDTO.setComment(subject.getComment());
         subjectOutputDTO.setInitial_date(subject.getInitial_date());
@@ -52,7 +53,7 @@ public class SubjectOutputDTO {
     {
         Subject subject = new Subject();
         subject.setId(this.getId());
-        subject.setStudents(this.getStudent());
+        subject.setStudents((List<Student>) this.getStudent());
         subject.setAsignatura(this.getAsignatura());
         subject.setComment(this.getComment());
         subject.setInitial_date(this.getInitial_date());

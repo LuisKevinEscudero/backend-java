@@ -10,8 +10,10 @@ import com.example.ej7.crudvalidation.subject.DTOs.SubjectOutputDTO;
 import com.example.ej7.crudvalidation.subject.model.Subject;
 import com.example.ej7.crudvalidation.subject.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -58,7 +60,7 @@ public class SubjectServiceImp implements SubjectService {
             subject.setComment(subjectInputDTO.getComment());
             subject.setFinish_date(subjectInputDTO.getFinish_date());
             subject.setInitial_date(subjectInputDTO.getInitial_date());
-           // subject.setStudent(subjectInputDTO.getStudent());
+            subject.setStudents((List<Student>) subjectInputDTO.getStudent());
             subjectRepository.save(subject);
         }
         else
@@ -105,16 +107,12 @@ public class SubjectServiceImp implements SubjectService {
 
     public void assignSubject(int id_subject, int id_student) throws Exception
     {
-        Student student = new Student();
-        student= studentRepository.findById(id_student).get();
+        Student student = studentRepository.findById(id_student).orElseThrow(() -> new EntityNotFoundException("Student not found"));
 
-        Subject subject = new Subject();
-        subject= subjectRepository.findById(id_subject).get();
+        Subject subject = subjectRepository.findById(id_subject).get();
 
-        List<Student> students = null;
-        students.add(student);
 
-        subject.setStudents(students);
+        subject.getStudents().add(student);
 
         subjectRepository.save(subject);
     }

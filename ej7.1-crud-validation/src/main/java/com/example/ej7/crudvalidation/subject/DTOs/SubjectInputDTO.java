@@ -10,6 +10,7 @@ import lombok.Setter;
 
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,7 +28,7 @@ public class SubjectInputDTO {
     public Subject toSubject(){
         Subject subject = new Subject();
         subject.setId(this.id);
-        //subject.setStudent(this.student);
+        subject.setStudents((List<Student>) this.student);
         subject.setAsignatura(this.asignatura);
         subject.setComment(this.comment);
         subject.setInitial_date(this.initial_date);

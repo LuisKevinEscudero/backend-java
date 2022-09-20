@@ -15,10 +15,10 @@ public class updateController {
     @Autowired
     PersonServiceImp personServiceImp;
 
-    @PutMapping("/updatePerson/{id}")
-    public PersonOutputDTO updatePerson(@RequestBody PersonInputDTO person, @PathVariable Integer id) throws Exception
+    @PutMapping("/updatePerson/{idPerson}")
+    public PersonOutputDTO updatePerson(@RequestBody PersonInputDTO person, @PathVariable String idPerson) throws Exception
     {
-        personServiceImp.updatePerson(person, id);
-        return  personServiceImp.getPerson(id);
+        personServiceImp.updatePerson(person, idPerson);
+        return  personServiceImp.getPerson(idPerson);
     }
 }

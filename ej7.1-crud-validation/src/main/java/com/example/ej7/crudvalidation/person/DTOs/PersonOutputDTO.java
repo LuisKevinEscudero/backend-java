@@ -11,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class PersonOutputDTO {
 
-    private int id;
+    private String idPerson;
     private String username;
     private String password;
     private String name;
@@ -26,7 +26,7 @@ public class PersonOutputDTO {
 
     public Person toPersonOutputDTO(Person person)
     {
-        this.id = person.getId();
+        this.idPerson = person.getIdPerson();
         this.username = person.getUsername();
         this.password = person.getPassword();
         this.name = person.getName();
@@ -44,7 +44,7 @@ public class PersonOutputDTO {
 
     public static PersonOutputDTO of(Person person) {
         PersonOutputDTO personOutputDTO = new PersonOutputDTO();
-        personOutputDTO.setId(person.getId());
+        personOutputDTO.setIdPerson(person.getIdPerson());
         personOutputDTO.setUsername(person.getUsername());
         personOutputDTO.setPassword(person.getPassword());
         personOutputDTO.setName(person.getName());

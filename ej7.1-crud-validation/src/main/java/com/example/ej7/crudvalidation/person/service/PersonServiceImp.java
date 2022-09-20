@@ -69,9 +69,9 @@ public class PersonServiceImp implements PersonService{
 
 
     @Override
-    public void updatePerson(PersonInputDTO personInputDTO, Integer id) throws Exception
+    public void updatePerson(PersonInputDTO personInputDTO, String idPerson) throws Exception
     {
-        Optional<Person> personOptional = personRepository.findById(id);
+        Optional<Person> personOptional = personRepository.findById(idPerson);
 
         if (personOptional.isPresent())
         {
@@ -92,19 +92,19 @@ public class PersonServiceImp implements PersonService{
     }
 
     @Override
-    public PersonOutputDTO getPerson(Integer id) throws Exception
+    public PersonOutputDTO getPerson(String idPerson) throws Exception
     {
         return personRepository
-                .findById(id)
+                .findById(idPerson)
                 .map(PersonOutputDTO::of)
-                .orElseThrow(() -> new EntityNotFoundException("No existe la persona con id " + id,404));
+                .orElseThrow(() -> new EntityNotFoundException("No existe la persona con id " + idPerson,404));
     }
 
 
     @Override
-    public void deletePerson(Integer id) throws Exception {
+    public void deletePerson(String idPerson) throws Exception {
         //personRepository.deleteById(id);
-        Optional<Person> personOptional = personRepository.findById(id);
+        Optional<Person> personOptional = personRepository.findById(idPerson);
         if (personOptional.isPresent())
         {
             Person person = personOptional.get();
@@ -112,7 +112,7 @@ public class PersonServiceImp implements PersonService{
         }
         else
         {
-            throw new EntityNotFoundException("No existe la persona con id " + id,404);
+            throw new EntityNotFoundException("No existe la persona con id " + idPerson,404);
         }
     }
 

@@ -24,15 +24,15 @@ import java.util.List;
 public class Subject implements Serializable
 {
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "subject_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "estudiantes_asignaturas",
-            joinColumns = @JoinColumn(name = "id_asignatura", referencedColumnName = "id_asignatura"),
-            inverseJoinColumns = @JoinColumn(name = "id_estudiante", referencedColumnName = "id_estudiante")
+            joinColumns = @JoinColumn(name = "id_asignatura", referencedColumnName = "subject_id"),
+            inverseJoinColumns = @JoinColumn(name = "id_estudiante", referencedColumnName = "idStudent")
     )
     private List<Student> students;
 

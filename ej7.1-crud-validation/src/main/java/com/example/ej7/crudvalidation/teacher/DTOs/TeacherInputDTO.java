@@ -9,14 +9,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TeacherInputDTO {
-    private Integer id;
+    private String idTeacher;
     Person person;
     String coments;
     String branch;
 
     public Teacher toTeacher(){
         Teacher teacher = new Teacher();
-        teacher.setId(this.id);
+        teacher.setIdTeacher(this.idTeacher);
         teacher.setPerson(this.person);
         teacher.setComents(this.coments);
         teacher.setBranch(this.branch);
