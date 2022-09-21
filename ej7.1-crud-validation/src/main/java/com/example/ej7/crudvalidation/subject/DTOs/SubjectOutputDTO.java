@@ -2,7 +2,6 @@ package com.example.ej7.crudvalidation.subject.DTOs;
 
 import com.example.ej7.crudvalidation.student.model.Student;
 import com.example.ej7.crudvalidation.subject.model.Subject;
-import com.example.ej7.crudvalidation.teacher.model.Teacher;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,34 +16,33 @@ import java.util.List;
 @NoArgsConstructor
 public class SubjectOutputDTO {
 
-    private Integer id;
-    //private Teacher teacher;
-    private Student student;
-    private String asignatura;
+    private String idSubject;
+    private List <Student> students;
+    private String signature;
     private String comment;
-    private Date initial_date;
-    private Date finish_date;
+    private Date initialDate;
+    private Date finishDate;
 
     public static SubjectOutputDTO of(Subject subject)
     {
         SubjectOutputDTO subjectOutputDTO = new SubjectOutputDTO();
-        subjectOutputDTO.setId(subject.getId());
-        subjectOutputDTO.setStudent(subject.getStudents().get(0));
-        subjectOutputDTO.setAsignatura(subject.getAsignatura());
+        subjectOutputDTO.setIdSubject(subject.getIdSubject());
+        subjectOutputDTO.setStudents(subject.getStudents());
+        subjectOutputDTO.setSignature(subject.getSignature());
         subjectOutputDTO.setComment(subject.getComment());
-        subjectOutputDTO.setInitial_date(subject.getInitial_date());
-        subjectOutputDTO.setFinish_date(subject.getFinish_date());
+        subjectOutputDTO.setInitialDate(subject.getInitialDate());
+        subjectOutputDTO.setFinishDate(subject.getFinishDate());
         return subjectOutputDTO;
     }
 
     public static SubjectOutputDTO ofSimple(Subject subject)
     {
         SubjectOutputDTO subjectOutputDTO = new SubjectOutputDTO();
-        subjectOutputDTO.setId(subject.getId());
-        subjectOutputDTO.setAsignatura(subject.getAsignatura());
+        subjectOutputDTO.setIdSubject(subject.getIdSubject());
+        subjectOutputDTO.setSignature(subject.getSignature());
         subjectOutputDTO.setComment(subject.getComment());
-        subjectOutputDTO.setInitial_date(subject.getInitial_date());
-        subjectOutputDTO.setFinish_date(subject.getFinish_date());
+        subjectOutputDTO.setInitialDate(subject.getInitialDate());
+        subjectOutputDTO.setFinishDate(subject.getFinishDate());
         return subjectOutputDTO;
     }
 
@@ -52,12 +50,12 @@ public class SubjectOutputDTO {
     public Subject toSubject()
     {
         Subject subject = new Subject();
-        subject.setId(this.getId());
-        subject.setStudents((List<Student>) this.getStudent());
-        subject.setAsignatura(this.getAsignatura());
+        subject.setIdSubject(this.getIdSubject());
+        subject.setStudents(this.getStudents());
+        subject.setSignature(this.getSignature());
         subject.setComment(this.getComment());
-        subject.setInitial_date(this.getInitial_date());
-        subject.setFinish_date(this.getFinish_date());
+        subject.setInitialDate(this.getInitialDate());
+        subject.setFinishDate(this.getFinishDate());
         return subject;
     }
 }

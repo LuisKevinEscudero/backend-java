@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface TeacherService {
     void createTeacher(TeacherInputDTO teacherInputDTO) throws Exception;
-    void updateTeacher(TeacherInputDTO teacherInputDTO, Integer id) throws Exception;
-    TeacherOutputDTO getTeacher(Integer id) throws Exception;
-    void deleteTeacher(Integer id) throws Exception;
+    void updateTeacher(TeacherInputDTO teacherInputDTO, String idTeacher) throws Exception;
+    TeacherOutputDTO getTeacher(String idTeacher) throws Exception;
+    void deleteTeacher(String idTeacher) throws Exception;
     List<Teacher> findAll();
-    TeacherOutputDTO getTeacherSimple(int id, String ouputType) throws Exception;
+    TeacherOutputDTO getTeacherSimple(String idTeacher, String ouputType) throws Exception;
 }

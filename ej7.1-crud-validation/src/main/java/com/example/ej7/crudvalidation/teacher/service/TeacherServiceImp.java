@@ -1,5 +1,6 @@
 package com.example.ej7.crudvalidation.teacher.service;
 
+import com.example.ej7.crudvalidation.exceptions.EntityNotFoundException;
 import com.example.ej7.crudvalidation.exceptions.UnprocessableEntityException;
 import com.example.ej7.crudvalidation.teacher.DTOs.TeacherInputDTO;
 import com.example.ej7.crudvalidation.teacher.DTOs.TeacherOutputDTO;
@@ -26,16 +27,22 @@ public class TeacherServiceImp implements TeacherService {
         {
             throw new UnprocessableEntityException("La rama no puede ser nula",422);
         }
-
-
+        if(teacher.getBranch().length() < 3)
+        {
+            throw new UnprocessableEntityException("La rama debe tener al menos 3 caracteres",422);
+        }
+        if(teacherRepository.findById(teacher.getPerson().getIdPerson()).isPresent())
+        {
+            throw new UnprocessableEntityException("Ya existe un profesor con ese id",422);
+        }
 
         teacherRepository.save(teacher);
     }
 
     @Override
-    public void updateTeacher(TeacherInputDTO teacherInputDTO, Integer id) throws Exception
+    public void updateTeacher(TeacherInputDTO teacherInputDTO, String idTeacher) throws Exception
     {
-        Optional<Teacher> teacherOptional = teacherRepository.findById(id);
+        Optional<Teacher> teacherOptional = teacherRepository.findById(idTeacher);
         if (teacherOptional.isPresent())
         {
             Teacher teacher = teacherOptional.get();
@@ -45,30 +52,30 @@ public class TeacherServiceImp implements TeacherService {
         }
         else
         {
-            throw new UnprocessableEntityException("El profesor no existe",422);
+            throw new EntityNotFoundException("El profesor no existe",404);
         }
     }
 
     @Override
-    public TeacherOutputDTO getTeacher(Integer id) throws Exception
+    public TeacherOutputDTO getTeacher(String idTeacher) throws Exception
     {
         return teacherRepository
-                .findById(id)
+                .findById(idTeacher)
                 .map(TeacherOutputDTO::of)
-                .orElseThrow(() -> new UnprocessableEntityException("El profesor no existe",422));
+                .orElseThrow(() -> new EntityNotFoundException("El profesor no existe",404));
     }
 
     @Override
-    public void deleteTeacher(Integer id) throws Exception
+    public void deleteTeacher(String idTeacher) throws Exception
     {
-        Optional<Teacher> teacherOptional = teacherRepository.findById(id);
+        Optional<Teacher> teacherOptional = teacherRepository.findById(idTeacher);
         if (teacherOptional.isPresent())
         {
             teacherRepository.delete(teacherOptional.get());
         }
         else
         {
-            throw new UnprocessableEntityException("El profesor no existe",422);
+            throw new EntityNotFoundException("El profesor no existe",404);
         }
     }
 
@@ -78,11 +85,11 @@ public class TeacherServiceImp implements TeacherService {
     }
 
     @Override
-    public TeacherOutputDTO getTeacherSimple(int id, String ouputType) throws Exception {
+    public TeacherOutputDTO getTeacherSimple(String idTeacher, String ouputType) throws Exception {
         return teacherRepository
-                .findById(id)
+                .findById(idTeacher)
                 .map(TeacherOutputDTO::ofSimple)
-                .orElseThrow(() -> new UnprocessableEntityException("El profesor no existe",422));
+                .orElseThrow(() -> new EntityNotFoundException("El profesor no existe",404));
 
     }
 }

@@ -25,18 +25,18 @@ public class readControllerTeacher {
     }
 
     //creating a get mapping that retrieves the detail of a specific teacher
-    @GetMapping("/getTeacher/{teacherid}")
-    public TeacherOutputDTO getTeacher(@PathVariable("teacherid") int teacherid, @RequestParam String ouputType) throws Exception
+    @GetMapping("/getTeacher/{idTeacher}")
+    public TeacherOutputDTO getTeacher(@PathVariable("idTeacher") String idTeacher, @RequestParam String ouputType) throws Exception
     {
         String tipo= "full";
         if (ouputType.equals(tipo))
         {
-            return teacherServiceImp.getTeacher(teacherid);
+            return teacherServiceImp.getTeacher(idTeacher);
 
         }
         else
         {
-            return teacherServiceImp.getTeacherSimple(teacherid, ouputType);
+            return teacherServiceImp.getTeacherSimple(idTeacher, ouputType);
         }
     }
 

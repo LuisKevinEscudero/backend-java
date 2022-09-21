@@ -25,18 +25,18 @@ public class readControllerSubject {
     }
 
     //creating a get mapping that retrieves the detail of a specific subject
-    @GetMapping("/getSubject/{subjectid}")
-    public SubjectOutputDTO getSubject(@PathVariable("subjectid") int subjectid, @RequestParam String ouputType) throws Exception
+    @GetMapping("/getSubject/{idSubject}")
+    public SubjectOutputDTO getSubject(@PathVariable("idSubject") String idSubject, @RequestParam String ouputType) throws Exception
     {
         String tipo= "full";
         if (ouputType.equals(tipo))
         {
-            return subjectServiceImp.getSubject(subjectid);
+            return subjectServiceImp.getSubject(idSubject);
 
         }
         else
         {
-            return subjectServiceImp.getSubjectSimple(subjectid, ouputType);
+            return subjectServiceImp.getSubjectSimple(idSubject, ouputType);
         }
     }
 }

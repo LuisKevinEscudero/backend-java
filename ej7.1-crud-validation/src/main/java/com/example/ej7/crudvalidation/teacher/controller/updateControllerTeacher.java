@@ -16,10 +16,10 @@ public class updateControllerTeacher {
     TeacherServiceImp teacherServiceImp;
 
     //creating a put mapping that updates the teacher detail
-    @PutMapping("/updateTeacher/{id}")
-    public TeacherOutputDTO updateTeacher(@RequestBody TeacherInputDTO teacher, @PathVariable Integer id) throws Exception
+    @PutMapping("/updateTeacher/{idTeacher}")
+    public TeacherOutputDTO updateTeacher(@RequestBody TeacherInputDTO teacher, @PathVariable String idTeacher) throws Exception
     {
-        teacherServiceImp.updateTeacher(teacher, id);
-        return teacherServiceImp.getTeacher(id);
+        teacherServiceImp.updateTeacher(teacher, idTeacher);
+        return teacherServiceImp.getTeacher(idTeacher);
     }
 }

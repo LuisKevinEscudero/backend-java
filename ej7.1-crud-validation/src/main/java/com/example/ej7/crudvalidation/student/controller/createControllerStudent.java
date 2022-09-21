@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class createControllerStudent {
@@ -30,7 +31,7 @@ public class createControllerStudent {
         {
             for (Teacher t : teachers)
             {
-                if (t.getPerson().getIdPerson() == student.getPerson().getIdPerson())
+                if (Objects.equals(t.getPerson().getIdPerson(), student.getPerson().getIdPerson()))
                 {
                     throw new UnprocessableEntityException("Ya existe un profesor con ese id",422);
                 }

@@ -56,7 +56,7 @@ public class Person implements Serializable {
     @Column(nullable = false)
     private String city;
 
-    @Column(nullable = false)
+    @Column//(nullable = false)
     private Boolean active;
 
     @Column//(nullable = false)

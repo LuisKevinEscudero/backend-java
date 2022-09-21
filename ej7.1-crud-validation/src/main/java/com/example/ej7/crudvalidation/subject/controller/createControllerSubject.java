@@ -29,8 +29,13 @@ public class createControllerSubject {
         subjectServiceImp.createSubject(subject);
     }
 
-    @PostMapping("/assignSubject/{subjectId}/{studentId}")
-    public void assignSubject(@PathVariable Integer subjectId, @PathVariable Integer studentId) throws Exception {
-        subjectServiceImp.assignSubject(subjectId, studentId);
+    @PostMapping("/assignSubject/{idSubject}/{idStudent}")
+    public void assignSubject(@PathVariable String idSubject, @PathVariable String idStudent) throws Exception {
+        subjectServiceImp.assignSubject(idSubject, idStudent);
+    }
+
+    @PostMapping("/assignSubjects/{idStudent}")
+    public void assignSubjects(@PathVariable String idStudent, @RequestBody List<SubjectInputDTO> subjects) throws Exception {
+        subjectServiceImp.assignSubjects(idStudent, subjects);
     }
 }

@@ -36,12 +36,20 @@ public class PersonServiceImp implements PersonService{
         if (person.getPassword() == null || person.getPassword().isEmpty()) {
             throw new UnprocessableEntityException("password no puede ser nulo",422);
         }
-        if (person.getName()==null)
-        {
-            throw new UnprocessableEntityException("Name no puede ser nulo",422);
+        if (person.getPassword().length() < 3) {
+            throw new UnprocessableEntityException("password debe tener al menos 3 caracteres",422);
+        }
+        if (person.getName()==null || person.getName().isEmpty()) {
+            throw new UnprocessableEntityException("name no puede ser nulo",422);
+        }
+        if (person.getName().length() < 3) {
+            throw new UnprocessableEntityException("name debe tener al menos 3 caracteres",422);
         }
         if(person.getCompanyEmail() == null || person.getCompanyEmail().isEmpty()) {
             throw new UnprocessableEntityException("companyEmail no puede ser nulo",422);
+        }
+        if(person.getCompanyEmail().length() < 3) {
+            throw new UnprocessableEntityException("companyEmail debe tener al menos 3 caracteres",422);
         }
         if (!person.getCompanyEmail().contains("@")) {
             throw new UnprocessableEntityException("companyEmail debe contener @",422);
@@ -49,17 +57,23 @@ public class PersonServiceImp implements PersonService{
         if(!person.getCompanyEmail().contains(".com") && !person.getCompanyEmail().contains(".es")) {
             throw new UnprocessableEntityException("companyEmail debe contener .com o .es",422);
         }
+        if (person.getPersonalEmail() == null || person.getPersonalEmail().isEmpty()) {
+            throw new UnprocessableEntityException("personalEmail no puede ser nulo",422);
+        }
+        if(person.getPersonalEmail().length() < 3) {
+            throw new UnprocessableEntityException("personalEmail debe tener al menos 3 caracteres",422);
+        }
         if (!person.getPersonalEmail().contains("@")) {
             throw new UnprocessableEntityException("companyEmail debe contener @",422);
         }
         if(!person.getPersonalEmail().contains(".com") && !person.getPersonalEmail().contains(".es")) {
             throw new UnprocessableEntityException("companyEmail debe contener .com o .es",422);
         }
-        if(person.getPersonalEmail() == null || person.getPersonalEmail().isEmpty()) {
-            throw new UnprocessableEntityException("personalEmail no puede ser nulo",422);
-        }
         if(person.getCity() == null || person.getCity().isEmpty()) {
             throw new UnprocessableEntityException("city no puede ser nulo",422);
+        }
+        if(person.getCity().length() < 3) {
+            throw new UnprocessableEntityException("city debe tener al menos 3 caracteres",422);
         }
         person.setCreatedDate(new java.util.Date());
 
@@ -87,7 +101,7 @@ public class PersonServiceImp implements PersonService{
         }
         else
         {
-            throw new EntityNotFoundException("No existe la persona",404);
+            throw new EntityNotFoundException("No existe la persona con id " + idPerson,404);
         }
     }
 

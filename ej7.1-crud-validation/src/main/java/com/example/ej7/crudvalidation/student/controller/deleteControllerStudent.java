@@ -13,8 +13,8 @@ public class deleteControllerStudent {
     StudentServiceImp studentServiceImp;
 
     //creating a delete mapping that deletes a specified student
-    @DeleteMapping("/deleteStudent/{studentid}")
-    public void deleteStudent(@PathVariable("studentid") int studentid) throws Exception {
-        studentServiceImp.deleteStudent(studentid);
+    @DeleteMapping("/deleteStudent/{idStudent}")
+    public void deleteStudent(@PathVariable("idStudent") String idStudent) throws Exception {
+        studentServiceImp.deleteStudent(idStudent);
     }
 }

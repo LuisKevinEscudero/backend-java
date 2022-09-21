@@ -40,7 +40,7 @@ public class Teacher implements Serializable {
     @Column(name = "comentarios")
     String coments;
 
-    @Column(name = "rama")
+    @Column(name = "rama", nullable = false)
     String branch;
 
 }

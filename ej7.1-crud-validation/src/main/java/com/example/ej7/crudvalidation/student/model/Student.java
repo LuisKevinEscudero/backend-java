@@ -41,7 +41,7 @@ public class Student implements Serializable {
     @JoinColumn(name = "idPersona")
     Person person;
 
-    @Column(name = "horasPorSemana")
+    @Column(name = "horasPorSemana", nullable = false)
     Integer numHoursWeek;
 
     @Column(name = "comentarios")
@@ -51,7 +51,7 @@ public class Student implements Serializable {
     @JoinColumn(name = "id_profesor")
     Teacher teacher;
 
-    @Column(name = "rama")
+    @Column(name = "rama", nullable = false)
     String branch;
 
     @ManyToMany(mappedBy = "students")

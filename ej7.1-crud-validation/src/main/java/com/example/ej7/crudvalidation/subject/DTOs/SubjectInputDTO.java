@@ -2,7 +2,6 @@ package com.example.ej7.crudvalidation.subject.DTOs;
 
 import com.example.ej7.crudvalidation.student.model.Student;
 import com.example.ej7.crudvalidation.subject.model.Subject;
-import com.example.ej7.crudvalidation.teacher.model.Teacher;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,22 +16,21 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SubjectInputDTO {
-    private Integer id;
-    //private Teacher teacher;
-    private Student student;
-    private String asignatura;
+    private String idSubject;
+    private List<Student> students;
+    private String signature;
     private String comment;
-    private Date initial_date;
-    private Date finish_date;
+    private Date initialDate;
+    private Date finishDate;
 
     public Subject toSubject(){
         Subject subject = new Subject();
-        subject.setId(this.id);
-        subject.setStudents((List<Student>) this.student);
-        subject.setAsignatura(this.asignatura);
+        subject.setIdSubject(this.idSubject);
+        subject.setStudents(this.students);
+        subject.setSignature(this.signature);
         subject.setComment(this.comment);
-        subject.setInitial_date(this.initial_date);
-        subject.setFinish_date(this.finish_date);
+        subject.setInitialDate(this.initialDate);
+        subject.setFinishDate(this.finishDate);
         return subject;
     }
 }

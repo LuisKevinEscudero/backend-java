@@ -12,8 +12,8 @@ public class deleteControllerTeacher {
     TeacherServiceImp teacherServiceImp;
 
     //creating a delete mapping that deletes a specified teacher
-    @DeleteMapping("/deleteTeacher/{teacherid}")
-    public void deleteTeacher(@PathVariable("teacherid") int teacherid) throws Exception {
-        teacherServiceImp.deleteTeacher(teacherid);
+    @DeleteMapping("/deleteTeacher/{idTeacher}")
+    public void deleteTeacher(@PathVariable("idTeacher") String idTeacher) throws Exception {
+        teacherServiceImp.deleteTeacher(idTeacher);
     }
 }

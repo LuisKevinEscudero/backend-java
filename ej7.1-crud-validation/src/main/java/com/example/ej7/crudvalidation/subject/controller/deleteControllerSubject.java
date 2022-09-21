@@ -13,8 +13,8 @@ public class deleteControllerSubject {
     SubjectServiceImp subjectServiceImp;
 
     //creating a delete mapping that deletes a specified subject
-    @DeleteMapping("/deleteSubject/{subjectid}")
-    public void deleteSubject(@PathVariable("subjectid") int subjectid) throws Exception {
-        subjectServiceImp.deleteSubject(subjectid);
+    @DeleteMapping("/deleteSubject/{idSubject}")
+    public void deleteSubject(@PathVariable("idSubject") String idSubject) throws Exception {
+        subjectServiceImp.deleteSubject(idSubject);
     }
 }

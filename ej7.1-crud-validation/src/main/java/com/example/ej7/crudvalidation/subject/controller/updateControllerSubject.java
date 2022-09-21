@@ -16,10 +16,10 @@ public class updateControllerSubject {
     SubjectServiceImp subjectServiceImp;
 
     //creating a put mapping that updates the subject detail
-    @PutMapping("/updateSubject/{id}")
-    public SubjectOutputDTO updateSubject(@RequestBody SubjectInputDTO subject, @PathVariable Integer id) throws Exception
+    @PutMapping("/updateSubject/{idSubject}")
+    public SubjectOutputDTO updateSubject(@RequestBody SubjectInputDTO subject, @PathVariable String idSubject) throws Exception
     {
-        subjectServiceImp.updateSubject(subject, id);
-        return subjectServiceImp.getSubject(id);
+        subjectServiceImp.updateSubject(subject, idSubject);
+        return subjectServiceImp.getSubject(idSubject);
     }
 }
