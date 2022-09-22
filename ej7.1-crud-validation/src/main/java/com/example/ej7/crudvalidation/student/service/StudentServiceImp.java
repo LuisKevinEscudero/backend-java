@@ -131,10 +131,8 @@ public class StudentServiceImp implements StudentService {
                 .findById(idStudent)
                 .orElseThrow(() -> new EntityNotFoundException("El estudiante con id " +idStudent+" no existe",404));
 
-        //return student.getStudies();
-        List<Subject> subjects = subjectRepository.findAll();
-        subjects.removeIf(subject -> !subject.getStudents().contains(student));
-        return subjects;
+        return student.getStudies();
+
     }
 }
 

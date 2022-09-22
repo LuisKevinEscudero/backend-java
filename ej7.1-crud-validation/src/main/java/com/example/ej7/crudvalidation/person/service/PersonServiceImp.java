@@ -6,6 +6,8 @@ import com.example.ej7.crudvalidation.exceptions.EntityNotFoundException;
 import com.example.ej7.crudvalidation.exceptions.UnprocessableEntityException;
 import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.person.repository.PersonRepository;
+import com.example.ej7.crudvalidation.student.model.Student;
+import com.example.ej7.crudvalidation.student.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,9 @@ public class PersonServiceImp implements PersonService{
 
     @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     @Override
     public void createPerson(PersonInputDTO personInputDTO) throws Exception
@@ -117,11 +122,22 @@ public class PersonServiceImp implements PersonService{
 
     @Override
     public void deletePerson(String idPerson) throws Exception {
-        //personRepository.deleteById(id);
+
         Optional<Person> personOptional = personRepository.findById(idPerson);
         if (personOptional.isPresent())
         {
             Person person = personOptional.get();
+
+            List<Student> students = studentRepository.findAll();
+            for (Student student : students)
+            {
+                if (student.getPerson().getIdPerson().equals(person.getIdPerson()))
+                {
+                    throw new UnprocessableEntityException("No se puede borrar la persona con id " + idPerson +
+                            " porque tiene estudiantes asociados",422);
+                }
+            }
+
             personRepository.delete(person);
         }
         else

@@ -46,7 +46,7 @@ public class Subject implements Serializable
             joinColumns = @JoinColumn(name = "id_asignatura", referencedColumnName = "idSubject"),
             inverseJoinColumns = @JoinColumn(name = "id_estudiante", referencedColumnName = "idStudent")
     )
-    private List<Student> students;
+    List<Student> students;
 
     @Column(name = "asignatura", nullable = false)
     String signature;

@@ -81,6 +81,11 @@ public class SubjectServiceImp implements SubjectService {
         if (subjectOptional.isPresent())
         {
             Subject subject = subjectOptional.get();
+
+            if (subject.getStudents().size() > 0)
+            {
+                throw new UnprocessableEntityException("La asignatura tiene alumnos matriculados",422);
+            }
             subjectRepository.delete(subject);
         }
         else
@@ -138,6 +143,28 @@ public class SubjectServiceImp implements SubjectService {
                     throw new EntityNotFoundException("La asignatura no existe", 404);
                 }
                 subject.getStudents().add(student.get());
+                subjectRepository.save(subject);
+            }
+        }
+        else
+        {
+            throw new EntityNotFoundException("El estudiante no existe",404);
+        }
+    }
+
+    @Override
+    public void desAssingSubjects(String idStudent, List<SubjectInputDTO> subjects) throws Exception {
+        Optional<Student> student = studentRepository.findById(idStudent);
+        if (student.isPresent())
+        {
+            for (SubjectInputDTO subjectInputDTO : subjects)
+            {
+                Subject subject = subjectRepository.findById(subjectInputDTO.getIdSubject()).get();
+                if (subject == null)
+                {
+                    throw new EntityNotFoundException("La asignatura no existe", 404);
+                }
+                subject.getStudents().remove(student.get());
                 subjectRepository.save(subject);
             }
         }
