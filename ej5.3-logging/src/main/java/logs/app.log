@@ -1,0 +1,20 @@
+2022-08-25 12:12:33,045 INFO com.example.ej5.logging.Application [main] Starting Application using Java 18.0.2 on L2207036 with PID 7760 (C:\Users\luiskevin.escudero\Desktop\ejercicios java\ej5.5-logging\target\classes started by luiskevin.escudero in C:\Users\luiskevin.escudero\Desktop\ejercicios java)
+2022-08-25 12:12:33,047 DEBUG com.example.ej5.logging.Application [main] Running with Spring Boot v2.7.3, Spring v5.3.22
+2022-08-25 12:12:33,049 INFO com.example.ej5.logging.Application [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-25 12:12:34,299 INFO com.example.ej5.logging.Application [main] Started Application in 1.605 seconds (JVM running for 2.066)
+2022-08-25 12:12:41,520 DEBUG com.example.ej5.logging.controlador1 [http-nio-8080-exec-2] Mensaje a nivel de DEBUG
+2022-08-25 12:12:41,520 INFO com.example.ej5.logging.controlador1 [http-nio-8080-exec-2] Mensaje a nivel de INFO
+2022-08-25 12:12:41,521 WARN com.example.ej5.logging.controlador1 [http-nio-8080-exec-2] Mensaje a nivel de WARNING
+2022-08-25 12:12:41,521 ERROR com.example.ej5.logging.controlador1 [http-nio-8080-exec-2] Mensaje a nivel de ERROR
+2022-08-25 12:43:54,025 INFO com.example.ej5.logging.Application [main] Starting Application using Java 18.0.2 on L2207036 with PID 11168 (C:\Users\luiskevin.escudero\Desktop\ejercicios java\ej5.5-logging\target\classes started by luiskevin.escudero in C:\Users\luiskevin.escudero\Desktop\ejercicios java)
+2022-08-25 12:43:54,028 DEBUG com.example.ej5.logging.Application [main] Running with Spring Boot v2.7.3, Spring v5.3.22
+2022-08-25 12:43:54,029 INFO com.example.ej5.logging.Application [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-25 12:43:55,270 INFO com.example.ej5.logging.Application [main] Started Application in 1.674 seconds (JVM running for 2.123)
+2022-08-25 12:44:00,859 DEBUG com.example.ej5.logging.controlador1 [http-nio-8080-exec-1] Mensaje a nivel de DEBUG
+2022-08-25 12:44:00,860 INFO com.example.ej5.logging.controlador1 [http-nio-8080-exec-1] Mensaje a nivel de INFO
+2022-08-25 12:44:00,860 WARN com.example.ej5.logging.controlador1 [http-nio-8080-exec-1] Mensaje a nivel de WARNING
+2022-08-25 12:44:00,860 ERROR com.example.ej5.logging.controlador1 [http-nio-8080-exec-1] Mensaje a nivel de ERROR
+2022-08-25 12:44:18,711 DEBUG com.example.ej5.logging.controlador1 [http-nio-8080-exec-4] Mensaje a nivel de DEBUG
+2022-08-25 12:44:18,711 INFO com.example.ej5.logging.controlador1 [http-nio-8080-exec-4] Mensaje a nivel de INFO
+2022-08-25 12:44:18,711 WARN com.example.ej5.logging.controlador1 [http-nio-8080-exec-4] Mensaje a nivel de WARNING
+2022-08-25 12:44:18,712 ERROR com.example.ej5.logging.controlador1 [http-nio-8080-exec-4] Mensaje a nivel de ERROR
