@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(name = "feignTest", url = "http://localhost:8081")
 public interface IFeignServer {
-    //@GetMapping("/teacherFeign/{idTeacher}")
+    @GetMapping("/teacherFeign/{idTeacher}")
     TeacherOutputDTO getTeacher(String idTeacher);
 }

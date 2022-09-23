@@ -2,6 +2,7 @@ package com.example.ej7.crudvalidation.person.controller;
 
 import com.example.ej7.crudvalidation.exceptions.EntityNotFoundException;
 
+import com.example.ej7.crudvalidation.feign.FeingImp;
 import com.example.ej7.crudvalidation.feign.IFeignServer;
 import com.example.ej7.crudvalidation.person.DTOs.PersonOutputDTO;
 import com.example.ej7.crudvalidation.person.model.Person;
@@ -30,7 +31,10 @@ public class readController {
     TeacherServiceImp teacherServiceImp;
 
     @Autowired
-    IFeignServer feignServer;
+    FeingImp feingImp;
+
+    @Autowired
+    IFeignServer iFeignServer;
 
 
 
@@ -65,16 +69,17 @@ public class readController {
         }
     }
 
-    /*@GetMapping("/teacher1/{idTeacher}")
+    @GetMapping("/teacher1/{idTeacher}")
     public  TeacherOutputDTO getTeacherFeign(@PathVariable("idTeacher") String idTeacher) throws Exception {
         try {
-            return feignServer.getTeacher(idTeacher);
+            //return feingImp.getTeacher(idTeacher);
+            return iFeignServer.getTeacher(idTeacher);
         }
         catch (EntityNotFoundException e)
         {
             throw  new EntityNotFoundException("el profesor no se ha encontrado",404);
         }
-    }*/
+    }
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<EntityNotFoundException> handleStorageException(EntityNotFoundException exception) {
