@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  app-crud:
+    container_name: app-crud
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: app-crud
+    ports:
+      - 8081:8080
+    networks:
+        - app-network
+  postgres:
+    container_name: postgres-db
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: contrasena
+      POSTGRES_USER: postgres
+      POSTGRES_DB: test
+    networks:
+        - app-network
+networks:
+    app-network:
+        driver: bridge
