@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: app-crud
+    image: library/ej7.1-crud-validation:0.0.1-SNAPSHOT
     ports:
       - 8081:8080
     networks:
