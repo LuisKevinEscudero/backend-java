@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "asignaturas")
+@Table(name = "asignatura")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -40,7 +40,7 @@ public class Subject implements Serializable
             })
     private String idSubject;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "estudiantes_asignaturas",
             joinColumns = @JoinColumn(name = "id_asignatura", referencedColumnName = "idSubject"),

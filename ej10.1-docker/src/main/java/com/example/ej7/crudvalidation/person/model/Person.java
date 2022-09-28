@@ -17,7 +17,7 @@ import org.hibernate.annotations.Parameter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "persona")
 public class Person implements Serializable {
     /*@Id
     @Column(name = "idPerson", nullable = false)

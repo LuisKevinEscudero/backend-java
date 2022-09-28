@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "estudiantes")
+@Table(name = "estudiante")
 @Getter
 @Setter
 @AllArgsConstructor

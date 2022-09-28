@@ -138,7 +138,7 @@ public class SubjectServiceImp implements SubjectService {
             for (SubjectInputDTO subjectInputDTO : subjects)
             {
                 Subject subject = subjectRepository.findById(subjectInputDTO.getIdSubject()).get();
-                if (subject == null)
+                if (subject== null)
                 {
                     throw new EntityNotFoundException("La asignatura no existe", 404);
                 }

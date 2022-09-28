@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "profesores")
+@Table(name = "profesor")
 @Getter
 @Setter
 @AllArgsConstructor
