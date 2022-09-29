@@ -1,0 +1,645 @@
+{
+	"info": {
+		"_postman_id": "a1c1c7cf-c984-461a-8cb1-fe739b6cc67b",
+		"name": "ej7.1.1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22803820"
+	},
+	"item": [
+		{
+			"name": "persona",
+			"item": [
+				{
+					"name": "localhost:8080/createPerson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"usuario4\",\r\n    \"password\":\"password4\",\r\n    \"name\":\"nombre4\",\r\n    \"surname\":\"surname4\",\r\n    \"companyEmail\":\"correoempresa4@empresa.com\",\r\n    \"personalEmail\":\"correopersonal4@persona.es\",\r\n    \"city\":\"ciudad4\",\r\n    \"active\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/createPerson",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"createPerson"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getAllPersons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/getAllPersons",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"getAllPersons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getPerson/10",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/getPerson/person-00001",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"getPerson",
+								"person-00001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getPersonByName/nombre6",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/getPersonByName/nombre2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"getPersonByName",
+								"nombre2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/deletePerson/11",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/deletePerson/person-00005",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"deletePerson",
+								"person-00005"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/updatePerson",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"wefwef\",\r\n    \"password\": \"password2\",\r\n    \"name\": \"luis\",\r\n    \"surname\": \"surname2\",\r\n    \"companyEmail\": \"correoempresa2@empresa.com\",\r\n    \"personalEmail\": \"correopersonal2@persona.es\",\r\n    \"city\": \"ciudad2\",\r\n    \"active\": true,\r\n    \"createdDate\": \"2022-09-20T11:55:20.360+00:00\",\r\n    \"imageUrl\": null,\r\n    \"terminationDate\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/updatePerson/person-00001",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"updatePerson",
+								"person-00001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "localhost:8080/createStudent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"numHoursWeek\":24,\r\n    \"coments\":\"estudiante 1\",\r\n    \"branch\":\"back\",\r\n    \"person\":{\r\n        \"idPerson\":\"person-00002\"\r\n    },\r\n    \"teacher\":{\r\n        \"idTeacher\":\"teacher-00001\"\r\n    }\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/createStudent",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"createStudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getAllStudents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/getAllStudents",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getAllStudents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getStudent/2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/getStudent/student-00001?ouputType=simple",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getStudent",
+								"student-00001"
+							],
+							"query": [
+								{
+									"key": "ouputType",
+									"value": "simple"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/deleteStudent/2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/deleteStudent/student-00002",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteStudent",
+								"student-00002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/updateStudent/7",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"numHoursWeek\": 21,\r\n        \"coments\": \"yo me anoto loko sape\",\r\n        \"branch\": \"front\"\r\n    }\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/updateStudent/student-00002",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updateStudent",
+								"student-00002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getStudentSubject/student-00001",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/getStudentSubject/student-00001",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getStudentSubject",
+								"student-00001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teacher",
+			"item": [
+				{
+					"name": "localhost:8080/createTeacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"coments\":\"teacher numero 2\",\r\n    \"branch\":\"front\",\r\n    \"person\":{\r\n        \"idPerson\":\"person-00001\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/createTeacher",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"createTeacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getAllTeachers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/getAllTeachers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getAllTeachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getTeacher/16?ouputType=simple",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/getTeacher/teacher-00002?ouputType=simple",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getTeacher",
+								"teacher-00002"
+							],
+							"query": [
+								{
+									"key": "ouputType",
+									"value": "simple"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/updateTeacher/16",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"coments\":\"update loko\",\r\n    \"branch\":\"front\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/updateTeacher/teacher-00002",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updateTeacher",
+								"teacher-00002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/deleteTeacher/10",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/deleteTeacher/teacher-00002",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"deleteTeacher",
+								"teacher-00002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8081/teacher1/teacher-00002",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/teacher1/teacher-00002",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"teacher1",
+								"teacher-00002"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subject",
+			"item": [
+				{
+					"name": "localhost:8080/createSubject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"signature\":\"Interfaces\",\r\n    \"comment\":\"cccc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/createSubject",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"createSubject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/assignSubject/4/1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/assignSubject/4/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignSubject",
+								"4",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getAllSubjects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/getAllSubjects",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getAllSubjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/getSubject/subject-00001?ouputType=full",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/getSubject/subject-00001?ouputType=full",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"getSubject",
+								"subject-00001"
+							],
+							"query": [
+								{
+									"key": "ouputType",
+									"value": "full"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/updateSubject/subject-00001",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"signature\": \"SOA\",\r\n    \"comment\": \"el peluka sape\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/updateSubject/subject-00001",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"updateSubject",
+								"subject-00001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/deleteSubject/subject-00001",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/deleteSubject/subject-00001",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"deleteSubject",
+								"subject-00001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/assignSubject/subject-00002/student-00001",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/assignSubject/subject-00002/student-00001",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"assignSubject",
+								"subject-00002",
+								"student-00001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/assignSubjects/student-00001",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[ \r\n    {\"idSubject\":\"subject-00001\"},\r\n    {\"idSubject\":\"subject-00002\"}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/assignSubjects/student-00001",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"assignSubjects",
+								"student-00001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/desAssingSubjects/student-00001",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\"idSubject\":\"subject-00001\"},\r\n    {\"idSubject\":\"subject-00002\"}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/desAssingSubjects/student-00001",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"desAssingSubjects",
+								"student-00001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

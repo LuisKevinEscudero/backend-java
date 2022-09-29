@@ -12,6 +12,7 @@
         <module name="ej5.1-command-line-runner" />
         <module name="ejercicio1Maven" />
         <module name="ej5.1 servidor-web" />
+        <module name="ej11.1-cors" />
         <module name="ej1.1-process-file-and-streams" />
         <module name="dependencias" />
         <module name="ej6.3-path-variable-headers" />
@@ -34,6 +35,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dependencias" options="-parameters" />
       <module name="ej10.1-docker" options="-parameters" />
+      <module name="ej11.1-cors" options="-parameters" />
       <module name="ej5.1 servidor-web" options="-parameters" />
       <module name="ej5.1-command-line-runner" options="-parameters" />
       <module name="ej5.1.1 inyeccion de dependencias" options="-parameters" />
