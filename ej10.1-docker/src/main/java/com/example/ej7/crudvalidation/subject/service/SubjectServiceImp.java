@@ -10,6 +10,7 @@ import com.example.ej7.crudvalidation.subject.model.Subject;
 import com.example.ej7.crudvalidation.subject.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -153,19 +154,25 @@ public class SubjectServiceImp implements SubjectService {
     }
 
     @Override
-    public void desAssingSubjects(String idStudent, List<SubjectInputDTO> subjects) throws Exception {
+    @Transactional
+    public void desAssingSubjects(String idStudent, List<SubjectInputDTO> subjects) throws Exception
+    {
         Optional<Student> student = studentRepository.findById(idStudent);
+
         if (student.isPresent())
         {
             for (SubjectInputDTO subjectInputDTO : subjects)
             {
-                Subject subject = subjectRepository.findById(subjectInputDTO.getIdSubject()).get();
-                if (subject == null)
+                Optional <Subject> subject = subjectRepository.findById(subjectInputDTO.getIdSubject());
+                if (subject.isPresent())
+                {
+                    subject.get().getStudents().remove(student.get());
+                    subjectRepository.save(subject.get());
+                }
+                else
                 {
                     throw new EntityNotFoundException("La asignatura no existe", 404);
                 }
-                subject.getStudents().remove(student.get());
-                subjectRepository.save(subject);
             }
         }
         else

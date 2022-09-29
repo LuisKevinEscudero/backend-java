@@ -26,4 +26,5 @@ public class deleteControllerSubject {
     public void desAssingSubjects(@PathVariable("idStudent") String idStudent, @RequestBody List<SubjectInputDTO> subjects) throws Exception {
         subjectServiceImp.desAssingSubjects(idStudent, subjects);
     }
+
 }
