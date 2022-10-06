@@ -23,10 +23,11 @@
         <option value="$PROJECT_DIR$/ej10.1-docker/pom.xml" />
         <option value="$PROJECT_DIR$/ej7.2-crud-validation/pom.xml" />
         <option value="$PROJECT_DIR$/ej11.1-cors/pom.xml" />
+        <option value="$PROJECT_DIR$/ej12.1-kafka/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="openjdk-18" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="20" project-jdk-type="JavaSDK" />
   <component name="ProjectType">
     <option name="id" value="jpab" />
   </component>

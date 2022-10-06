@@ -1,9 +1,14 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-18.0.2" />
+    <option name="ALTERNATIVE_JRE_PATH" value="20" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-    <option name="MAIN_CLASS_NAME" value="com.example.ej7.crudvalidation.Application" />
-    <module name="ej11.1-cors" />
+    <envs>
+      <env name="TOPICNAME" value="&quot;mytopic_1&quot;" />
+      <env name="TOPICNAME2" value="&quot;mytopic_2&quot;" />
+      <env name="GROUPID" value="&quot;profe_group&quot;" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.example.ej12.kafka.Application" />
+    <module name="ej12.1-kafka" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

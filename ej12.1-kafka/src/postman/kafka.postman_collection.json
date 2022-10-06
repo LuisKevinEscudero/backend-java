@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "eff15a1d-2368-462d-bdd6-f42a08751e3d",
+		"name": "kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22803820"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/add/topic1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mensaje\":\"enviado por postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/add/topic1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"add",
+						"topic1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

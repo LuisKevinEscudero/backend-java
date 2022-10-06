@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="ej7.1-crud-validation [spring-boot:build-image]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+  <configuration default="false" name="[spring-boot:build-image]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -18,7 +18,7 @@
             <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/ej10.1-docker" />
+          <option name="workingDirPath" value="$PROJECT_DIR$/ej12.1-kafka" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>
