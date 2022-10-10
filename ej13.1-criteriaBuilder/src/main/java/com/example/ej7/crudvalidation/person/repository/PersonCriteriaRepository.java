@@ -74,7 +74,7 @@ public class PersonCriteriaRepository {
             }
             else
             {
-                predicates.add(criteriaBuilder.lessThan(personRoot.get("created_date"), personSearchCriteria.getCreatedDate()));
+                predicates.add(criteriaBuilder.lessThan(personRoot.get("createdDate"), personSearchCriteria.getCreatedDate()));
             }
 
         }

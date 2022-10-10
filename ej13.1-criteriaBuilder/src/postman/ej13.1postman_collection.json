@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "5d81bd62-3b65-4fb0-8dab-9e6c0a1d2906",
+		"name": "criteriaBuilder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22803820"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/createPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"danmachi\",\r\n    \"password\":\"password3\",\r\n    \"name\":\"luisa\",\r\n    \"surname\":\"surname3\",\r\n    \"companyEmail\":\"correoempresa3@empresa.com\",\r\n    \"personalEmail\":\"correopersonal3@persona.es\",\r\n    \"city\":\"ciudad3\",\r\n    \"active\":\"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/createPerson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"createPerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/getCriteriaPerson?page=12&sortBy=username&creationDate=2022-10-11",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/getCriteriaPerson?page=12&sortBy=username&creationDate=2022-10-11",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getCriteriaPerson"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "12"
+						},
+						{
+							"key": "sortBy",
+							"value": "username"
+						},
+						{
+							"key": "username",
+							"value": "gravity",
+							"disabled": true
+						},
+						{
+							"key": "surname",
+							"value": "surname3",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "pepe",
+							"disabled": true
+						},
+						{
+							"key": "creationDate",
+							"value": "2022-10-11"
+						},
+						{
+							"key": "dateCriteria",
+							"value": "prev",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

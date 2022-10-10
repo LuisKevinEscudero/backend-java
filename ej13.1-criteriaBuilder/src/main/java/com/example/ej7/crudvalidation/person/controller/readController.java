@@ -19,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -96,10 +97,21 @@ public class readController {
                                           @RequestParam(required = false) String username,
                                           @RequestParam(required = false) String name,
                                           @RequestParam(required = false) String surname,
-                                          @RequestParam(required = false) Date creationDate,
+                                          @RequestParam(required = false) String creationDate,
                                           @RequestParam(required = false) String dateCriteria,
                                           @RequestParam(required = false) String sortBy,
                                           @RequestParam Integer page) throws Exception {
+
+        //transformar string en date
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(creationDate);
+
+        personPage.setPageSize(page);
+        personPage.setSortBy(sortBy);
+        personSearchCriteria.setCriteriaDate(dateCriteria);
+        personSearchCriteria.setCreatedDate(date);
+        personSearchCriteria.setName(name);
+        personSearchCriteria.setSurname(surname);
+        personSearchCriteria.setUsername(username);
         return personServiceImp.getPersons(personPage,personSearchCriteria);
     }
 
