@@ -22,6 +22,7 @@
         <module name="ej7.1-crud-validation (1)" />
         <module name="ej13.1-criteriaBuilder" />
         <module name="ej12.1-kafka" />
+        <module name="ej13.2-mongodb" />
         <module name="ejercicio1Maven" />
         <module name="ej5.1 servidor-web" />
         <module name="ej5.3-command-line-runner" />
@@ -49,6 +50,7 @@
       <module name="ej11.1-cors" options="-parameters" />
       <module name="ej12.1-kafka" options="-parameters" />
       <module name="ej13.1-criteriaBuilder" options="-parameters" />
+      <module name="ej13.2-mongodb" options="-parameters" />
       <module name="ej5.1 servidor-web" options="-parameters" />
       <module name="ej5.1-command-line-runner" options="-parameters" />
       <module name="ej5.1.1 inyeccion de dependencias" options="-parameters" />
