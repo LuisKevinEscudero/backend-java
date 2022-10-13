@@ -15,6 +15,7 @@
         <module name="ej1.1-process-file-and-streams" />
         <module name="dependencias" />
         <module name="ej7.2-crud-validation" />
+        <module name="ej7.1-crud-validation (4)" />
         <module name="demo" />
         <module name="ej7.1-crud-validation (2)" />
         <module name="ej3.2-create-repo-git" />
@@ -64,6 +65,7 @@
       <module name="ej7.1-crud-validation (1)" options="-parameters" />
       <module name="ej7.1-crud-validation (2)" options="-parameters" />
       <module name="ej7.1-crud-validation (3)" options="-parameters" />
+      <module name="ej7.1-crud-validation (4)" options="-parameters" />
       <module name="ej7.2-crud-validation" options="-parameters" />
       <module name="ejer5.2.2" options="-parameters" />
       <module name="ejer5.2.3" options="-parameters" />
