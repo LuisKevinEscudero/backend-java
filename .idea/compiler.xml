@@ -7,8 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ej3.1-maven-package" />
         <module name="ej5.1.1 inyeccion de dependencias" />
+        <module name="demo" />
+        <module name="ej3.2-create-repo-git" />
+        <module name="ej7.1-crud-validation (3)" />
+        <module name="ej7.1-crud-validation (1)" />
+        <module name="ej13.2-mongodb" />
+        <module name="ejercicio1Maven" />
+        <module name="ej5.1 servidor-web" />
+        <module name="ej5.3-command-line-runner" />
+        <module name="ej6.3-path-variable-headers" />
+        <module name="sprintboot-service-factory-location" />
+        <module name="ej3.1-maven-package" />
         <module name="ej5.1-command-line-runner" />
         <module name="ej11.1-cors" />
         <module name="EjerDependencias" />
@@ -16,18 +26,10 @@
         <module name="dependencias" />
         <module name="ej7.2-crud-validation" />
         <module name="ej7.1-crud-validation (4)" />
-        <module name="demo" />
         <module name="ej7.1-crud-validation (2)" />
-        <module name="ej3.2-create-repo-git" />
-        <module name="ej7.1-crud-validation (3)" />
-        <module name="ej7.1-crud-validation (1)" />
         <module name="ej13.1-criteriaBuilder" />
         <module name="ej12.1-kafka" />
-        <module name="ej13.2-mongodb" />
-        <module name="ejercicio1Maven" />
-        <module name="ej5.1 servidor-web" />
-        <module name="ej5.3-command-line-runner" />
-        <module name="ej6.3-path-variable-headers" />
+        <module name="MotoService" />
         <module name="ej10.1-docker" />
       </profile>
     </annotationProcessing>
@@ -39,12 +41,16 @@
       <module name="ej7.1-crud-validation" target="18" />
       <module name="ejer5.2.2" target="18" />
       <module name="ejer5.2.3" target="18" />
+      <module name="ejerChuchi" target="19" />
+      <module name="springboot-service-locator-factory-bean" target="19" />
+      <module name="springboot-servicelocatorfactorybean" target="19" />
       <module name="untitled" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="EjerDependencias" options="-parameters" />
+      <module name="MotoService" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="dependencias" options="-parameters" />
       <module name="ej10.1-docker" options="-parameters" />
@@ -69,6 +75,9 @@
       <module name="ej7.2-crud-validation" options="-parameters" />
       <module name="ejer5.2.2" options="-parameters" />
       <module name="ejer5.2.3" options="-parameters" />
+      <module name="springboot-service-locator-factory-bean" options="-parameters" />
+      <module name="springboot-servicelocatorfactorybean" options="-parameters" />
+      <module name="sprintboot-service-factory-location" options="-parameters" />
     </option>
   </component>
 </project>
