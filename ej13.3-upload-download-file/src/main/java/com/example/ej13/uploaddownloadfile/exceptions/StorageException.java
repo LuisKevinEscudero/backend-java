@@ -1,4 +1,4 @@
-package com.example.ej13.uploaddownloadfile.exception;
+package com.example.ej13.uploaddownloadfile.exceptions;
 
 public class StorageException extends RuntimeException {
 
