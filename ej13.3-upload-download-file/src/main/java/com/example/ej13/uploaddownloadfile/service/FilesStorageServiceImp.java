@@ -33,8 +33,8 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 @RequiredArgsConstructor
 public class FilesStorageServiceImp implements FilesStorageService {
 
-    @Autowired(required = false)
-    private FileRepository fileRepository;
+    @Autowired
+    FileRepository fileRepository;
 
     private final Path root = Paths.get("ej13.3-upload-download-file/uploads");
 
@@ -50,11 +50,15 @@ public class FilesStorageServiceImp implements FilesStorageService {
     @Override
     public void save(MultipartFile file) {
         try {
-            Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
+            Files.copy(file.getInputStream(), this.root.resolve(strippedFilename(file.getOriginalFilename())));
         } catch (Exception e) {
             throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
         }
     }
+
+    //cambiar el nombre a un fichero
+
+
 
     @Override
     public Resource load(String filename) {
@@ -86,14 +90,21 @@ public class FilesStorageServiceImp implements FilesStorageService {
         }
     }
 
-    public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file)
+    public ResponseEntity<ResponseMessage> uploadFile( MultipartFile file, String type)
     {
+
+        String extension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".")+1);
+        if (!extension.equals(type))
+        {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage("El tipo de fichero no es correcto"));
+        }
+
         String message = "";
         try
         {
             save(file);
             fileRepository.save(new FileInfo(
-                    file.getOriginalFilename(),
+                    strippedFilename(file.getOriginalFilename()),
                     loadAll().map(path -> MvcUriComponentsBuilder.fromMethodName(FilesController.class, "getFile", path.getFileName().toString()).build().toString()).toList().get(0),
                     file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1),
                     new Date() ) );
@@ -110,10 +121,11 @@ public class FilesStorageServiceImp implements FilesStorageService {
     public ResponseEntity<List<FileInfo>> getListFiles() {
         List<FileInfo> fileInfos = loadAll().map(path -> {
             String filename = path.getFileName().toString();
-            String url = MvcUriComponentsBuilder.fromMethodName(FilesController.class, "getFile", path.getFileName().toString()).build().toString();
-            String metadata = filename.substring(filename.lastIndexOf(".") + 1);
-            Date uploadDate = new Date();
-            return new FileInfo(filename, url, metadata, uploadDate);
+            Integer idFile=fileRepository.findByName(filename).get().getIdFile();
+            String url=fileRepository.findByName(filename).get().getUrl();
+            String metadata= fileRepository.findByName(filename).get().getMetadata();
+            Date uploadDate = fileRepository.findByName(filename).get().getUploadDate();
+            return new FileInfo(idFile,filename, url, metadata, uploadDate);
         }).collect(Collectors.toList());
 
         return ResponseEntity.status(HttpStatus.OK).body(fileInfos);
@@ -125,4 +137,12 @@ public class FilesStorageServiceImp implements FilesStorageService {
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
+
+    // remove spaces from filename
+    public String strippedFilename(String filename)
+    {
+        return filename.replaceAll("\\s", "");
+    }
+
+
 }
