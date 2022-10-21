@@ -23,8 +23,8 @@ public class Application implements CommandLineRunner{
 
 	@Override
 	public void run(String... arg) throws Exception {
-		filesStorageServiceImp.deleteAll();
-		filesStorageServiceImp.init();
+		filesStorageServiceImp.deleteAll(arg[0]);
+		filesStorageServiceImp.init(arg[0]);
 	}
 
 }

@@ -36,11 +36,13 @@ public class FilesStorageServiceImp implements FilesStorageService {
     @Autowired
     FileRepository fileRepository;
 
-    private final Path root = Paths.get("ej13.3-upload-download-file/uploads");
+    //private final Path root = Paths.get("ej13.3-upload-download-file/uploads");
+    Path root;
 
     @Override
-    public void init() {
+    public void init(String route) {
         try {
+            this.root = Paths.get(route);
             Files.createDirectory(root);
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize folder for upload!");
@@ -77,7 +79,8 @@ public class FilesStorageServiceImp implements FilesStorageService {
     }
 
     @Override
-    public void deleteAll() {
+    public void deleteAll(String route) {
+        this.root = Paths.get(route);
         FileSystemUtils.deleteRecursively(root.toFile());
     }
 
