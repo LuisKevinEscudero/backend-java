@@ -58,10 +58,6 @@ public class FilesStorageServiceImp implements FilesStorageService {
         }
     }
 
-    //cambiar el nombre a un fichero
-
-
-
     @Override
     public Resource load(String filename) {
         try {
