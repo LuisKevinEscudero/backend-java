@@ -7,8 +7,8 @@ import com.example.ej7.crudvalidation.person.model.Person;
 import java.util.List;
 
 public interface PersonService {
-    void createPerson(PersonInputDTO personInputDTO) throws Exception;
-    void updatePerson(PersonInputDTO personInputDTO, String idPerson) throws Exception;
+    Person createPerson(PersonInputDTO personInputDTO) throws Exception;
+    Person updatePerson(PersonInputDTO personInputDTO, String idPerson) throws Exception;
     PersonOutputDTO getPerson(String idPerson) throws Exception;
     void deletePerson(String idPerson) throws Exception;
 

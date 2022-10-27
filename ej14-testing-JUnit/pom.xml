@@ -54,8 +54,20 @@
 			<version>5.9.1</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-	</dependencies>
+		<!-- spring integration test for security-->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+    </dependencies>
 
 	<build>
 		<plugins>

@@ -25,7 +25,7 @@ public class PersonServiceImp implements PersonService{
     private StudentRepository studentRepository;
 
     @Override
-    public void createPerson(PersonInputDTO personInputDTO) throws Exception
+    public Person createPerson(PersonInputDTO personInputDTO) throws Exception
     {
         Person person = personInputDTO.toPerson();
 
@@ -83,12 +83,12 @@ public class PersonServiceImp implements PersonService{
         person.setCreatedDate(new java.util.Date());
 
         personRepository.save(person);
-
+        return person;
     }
 
 
     @Override
-    public void updatePerson(PersonInputDTO personInputDTO, String idPerson) throws Exception
+    public Person updatePerson(PersonInputDTO personInputDTO, String idPerson) throws Exception
     {
         Optional<Person> personOptional = personRepository.findById(idPerson);
 
@@ -102,6 +102,8 @@ public class PersonServiceImp implements PersonService{
             person.setPersonalEmail(personInputDTO.getPersonalEmail());
             person.setCity(personInputDTO.getCity());
             personRepository.save(person);
+
+            return person;
 
         }
         else
