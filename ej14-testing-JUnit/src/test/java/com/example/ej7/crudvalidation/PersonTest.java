@@ -26,6 +26,7 @@ public class PersonTest {
         personRepository.deleteAll();
     }
 
+    // este test ya esta echo en el service
     @Test
     public void findByNameTest() throws Exception {
         PersonInputDTO personInputDTO = new PersonInputDTO("username", "password", "name", "surname", "companyEmail@aaa.com", "personalEmail@oo.es", "city", true, new Date(), "imageUrl", new Date());
