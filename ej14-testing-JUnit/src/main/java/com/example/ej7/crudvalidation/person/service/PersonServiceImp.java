@@ -152,7 +152,7 @@ public class PersonServiceImp implements PersonService{
     public List<PersonOutputDTO> findByName(String name) throws Exception
     {
         List<PersonOutputDTO> personOptional = personRepository.findByName(name);
-        if (personOptional.isEmpty())
+        if (personOptional == null)
         {
             throw new EntityNotFoundException("No existe la persona con nombre " + name,404);
         }

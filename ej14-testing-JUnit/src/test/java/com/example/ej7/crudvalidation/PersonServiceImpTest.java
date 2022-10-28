@@ -19,7 +19,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -43,12 +45,23 @@ public class PersonServiceImpTest {
 
     PersonInputDTO personInputDTO=null; //new PersonInputDTO("username", "password", "name", "surname", "companyEmail@aaa.com", "personalEmail@oo.es", "city", true, new Date(), "imageUrl", new Date());
     Person person = null;
-
+    PersonOutputDTO personOutputDTO = null;
+    List<PersonOutputDTO> personOutputDTOList = new ArrayList<>();
 
     @BeforeEach
     public void setUp() {
         personInputDTO= new PersonInputDTO("username", "password", "name", "surname", "companyEmail@aaa.com", "personalEmail@oo.es", "city", true, new Date(), "imageUrl", new Date());
         person = personInputDTO.toPerson();
+        personOutputDTO = new PersonOutputDTO();
+        personOutputDTO.setName("name");
+        personOutputDTO.setSurname("surname");
+        personOutputDTO.setCompanyEmail("companyEmail");
+        personOutputDTO.setPersonalEmail("personalEmail");
+        personOutputDTO.setCity("city");
+        personOutputDTO.setActive(true);
+        personOutputDTO.setCreatedDate(new Date());
+        personOutputDTO.setImageUrl("imageUrl");
+        personOutputDTOList.add(personOutputDTO);
         System.out.println("setUp");
     }
 
@@ -261,10 +274,10 @@ public class PersonServiceImpTest {
 
     @Test
     public void UpdatePersonException() throws Exception {
-        //given
+        System.out.println("UpdatePersonException");
         String id = "person-00001";
 
-        given(personRepository.findById("person-00001")).willReturn(Optional.empty());
+        given(personRepository.findById("person-00001")).willReturn(Optional.ofNullable(null));
 
         personInputDTO.setUsername("juli223");
         personInputDTO.setName("julian");
@@ -276,7 +289,7 @@ public class PersonServiceImpTest {
 
     @Test
     void canDeletePerson() throws Exception {
-
+        System.out.println("canDeletePerson");
         String id = "person-00001";
 
         given(personRepository.findById(id)).willReturn(Optional.of(person));
@@ -287,7 +300,36 @@ public class PersonServiceImpTest {
         verify(personRepository).delete(person);
     }
 
+    @Test
+    void deletePersonException() throws Exception {
+        System.out.println("deletePersonException");
+        String id = "person-00001";
 
+        given(personRepository.findById(id)).willReturn(Optional.ofNullable(null));
+
+        assertThrows(EntityNotFoundException.class, () -> personService.deletePerson(id));
+
+        verify(personRepository, never()).delete(person);
+    }
+
+    @Test
+    public void canFindByName() throws Exception {
+        System.out.println("canFindByName");
+
+        String name= "julian";
+        when(personRepository.findByName(name)).thenReturn(personOutputDTOList);
+        personRepository.findByName(name);
+        verify(personRepository).findByName(name);
+    }
+
+    @Test
+    public void findByNameException() throws Exception {
+        System.out.println("findByNameException");
+
+        String name= "julian";
+        when(personRepository.findByName(name)).thenReturn(null);
+        assertThrows(EntityNotFoundException.class, () -> personService.findByName(name));
+    }
 
 
 }
