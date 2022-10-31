@@ -19,6 +19,7 @@
         <module name="ej6.3-path-variable-headers" />
         <module name="sprintboot-service-factory-location" />
         <module name="ej3.1-maven-package" />
+        <module name="ej15-spring-security" />
         <module name="ej5.1-command-line-runner" />
         <module name="ej11.1-cors" />
         <module name="EjerDependencias" />
@@ -62,6 +63,7 @@
       <module name="ej13.2-mongodb" options="-parameters" />
       <module name="ej13.3-upload-download-file" options="-parameters" />
       <module name="ej14-testing-JUnit" options="-parameters" />
+      <module name="ej15-spring-security" options="-parameters" />
       <module name="ej5.1 servidor-web" options="-parameters" />
       <module name="ej5.1-command-line-runner" options="-parameters" />
       <module name="ej5.1.1 inyeccion de dependencias" options="-parameters" />

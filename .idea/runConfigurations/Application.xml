@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="com.example.ej7.crudvalidation.Application" type="Application" factoryName="Application" nameIsGenerated="true">
+  <configuration default="false" name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="ALTERNATIVE_JRE_PATH" value="19" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="com.example.ej7.crudvalidation.Application" />
-    <module name="ej14-testing-JUnit" />
+    <module name="ej15-spring-security" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
