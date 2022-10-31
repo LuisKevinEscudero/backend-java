@@ -1,0 +1,30 @@
+paso 1: instalar y ejecutar sonarqube desde docker
+paso 2: meter estos dos plugins en el pom.xml
+
+<profiles>
+    <profile>
+        <id>sonar</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <sonar.host.url>http://localhost:9000</sonar.host.url>
+            <sonar.login>admin</sonar.login>
+            <sonar.password>admin</sonar.password>
+        </properties>
+    </profile>
+</profiles>
+
+<plugin>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.9.1.2184</version>
+</plugin>
+
+<dependency>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.9.1.2184</version>
+</dependency>
+
+pasos 3: ejecutar desde maven el plugin de sonar

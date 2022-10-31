@@ -9,15 +9,15 @@ import com.example.ej7.crudvalidation.person.model.Person;
 import com.example.ej7.crudvalidation.person.repository.PersonRepository;
 import com.example.ej7.crudvalidation.person.service.PersonService;
 import com.example.ej7.crudvalidation.person.service.PersonServiceImp;
-
 import com.example.ej7.crudvalidation.student.repository.StudentRepository;
-import org.junit.Ignore;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -330,6 +330,5 @@ public class PersonServiceImpTest {
         when(personRepository.findByName(name)).thenReturn(null);
         assertThrows(EntityNotFoundException.class, () -> personService.findByName(name));
     }
-
 
 }
