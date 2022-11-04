@@ -17,6 +17,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import java.util.List;
 
 
 @Configuration
@@ -34,34 +35,26 @@ public class WebSecurityConfig {
     @Bean
     public UserDetailsService userDetailsService(BCryptPasswordEncoder bCryptPasswordEncoder)
     {
-//        Person person= personRepository.findById(idPerson).get();
-//
-//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//
-//        if (person.getAdmin())
-//        {
-//            manager.createUser(User.withUsername(person.getUsername())
-//                    .password(bCryptPasswordEncoder.encode(person.getPassword()))
-//                    .roles("ADMIN")
-//                    .build());
-//        }
-//        else
-//        {
-//            manager.createUser(User.withUsername(person.getUsername())
-//                    .password(bCryptPasswordEncoder.encode(person.getPassword()))
-//                    .roles("USER")
-//                    .build());
-//        }
+        List<Person> personList = personRepository.findAll();
 
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("admin")
-                .password(bCryptPasswordEncoder.encode("admin"))
-                .roles("ADMIN")
-                .build());
-        manager.createUser(User.withUsername("user")
-                .password(bCryptPasswordEncoder.encode("user"))
-                .roles("USER")
-                .build());
+        for (Person person : personList) {
+            if (person.getAdmin())
+            {
+                manager.createUser(User.withUsername(person.getUsername())
+                        .password(bCryptPasswordEncoder.encode(person.getPassword()))
+                        .roles("ADMIN")
+                        .build());
+            }
+            else
+            {
+                manager.createUser(User.withUsername(person.getUsername())
+                        .password(bCryptPasswordEncoder.encode(person.getPassword()))
+                        .roles("USER").build());
+            }
+
+        }
+
         return manager;
     }
 
@@ -71,9 +64,10 @@ public class WebSecurityConfig {
        return  http
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests(auth ->{
-                    auth.antMatchers("/publico").permitAll();
-                    auth.antMatchers("/ADMIN").hasRole("ADMIN");
+                    auth.antMatchers("/**").hasRole("ADMIN");
+                    auth.antMatchers("/USER/**").hasRole("USER");
                     auth.anyRequest().authenticated();
+                    //auth.anyRequest().permitAll();
                 })
                 .httpBasic(Customizer.withDefaults())
                 .build();
